@@ -37,7 +37,7 @@ def generate_word_details(word):
         tuple: (meaning, synonyms, antonyms, example)
     """
     prompt = f"""
-    You are an educational assistant helping users understand words. Please provide information for the word "{word}" in a safe, educational format.
+    You are an educational assistant helping users understand words. Please provide information for the word "{word}" in a safe, educational format, for competetive exams.
 
     - Meaning: A short, neutral definition.
     - Synonyms: Up to 5 synonyms (if available).
