@@ -4,13 +4,14 @@ from django.contrib.auth.decorators import login_required
 from .models import Word
 from .forms import WordForm
 from .utils import generate_word_details
+from quizApp.views import create_mcq
 
 @login_required
 def add_word(request):
     if request.method == 'POST':
         form = WordForm(request.POST)
         if form.is_valid():
-            word = form.save(commit=False)
+            word = form.save(commit=False)  # Don't save yet
 
             # Generate missing details only if not provided by the user
             generated_meaning, generated_synonyms, generated_antonyms, generated_example = generate_word_details(word.word)
@@ -24,14 +25,24 @@ def add_word(request):
             if not word.example:
                 word.example = generated_example
             
-            print(word)
-            print(word.word, "-", word.meaning,"-", word.synonyms,"-", word.antonyms,"-", word.example,"-", word.created_by,"-", word.created_at)
             # Assign the logged-in user as the creator
             word.created_by = request.user
             word.save()
+            print("Attempting to create MCQs...")
+            mcq_response = create_mcq(request, word.word)
+            print(mcq_response)
+            # Check if MCQ creation was successful
+            if mcq_response.status_code == 200 and "error" not in mcq_response:
+                messages.success(request, f"Word '{word.word}' added successfully!")
+                return redirect('add_word')
+            else:
+                print("Failed to create MCQs. Deleting the saved word...")
+                Word.objects.filter(word=word.word).delete()  # Delete the saved word if MCQ creation fails
+                error_message = mcq_response.get("error", "Failed to create MCQs.")
+                messages.error(request, f"Error adding word: {error_message}")
+        else:
+            messages.error(request, "Invalid form submission. Please check your input.")
 
-            messages.success(request, f"Word '{word.word}' added successfully!")
-            return redirect('add_word')
     else:
         form = WordForm()
 

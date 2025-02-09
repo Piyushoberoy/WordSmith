@@ -1,163 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzes | WordSmith</title>
+{% extends 'basePage.html' %}
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{% block title %} Available Quizzes {% endblock %}
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% block static %}
+<!-- Custom Styles -->
+<style>    
+    .quiz-container {
+        max-width: 900px;
+        margin: auto;
+        padding: 40px;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+        border: #2ebf91 2px solid;
+        border-radius: 20px;
+        background: #fff;
+    }
 
-    <!-- Custom Styles -->
-    <style>
-        body {
-            background: linear-gradient(135deg, #2ebf91, #136a8a);
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    .quiz-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease-in-out;
+        cursor: pointer;
+    }
 
-        .quiz-container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
+    .quiz-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+    }
 
-        .quiz-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease-in-out;
-            cursor: pointer;
-            transform: perspective(1000px);
-            transform-style: preserve-3d;
-        }
+    .quiz-card p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 10px;
+    }
 
-        .quiz-card:hover {
-            transform: scale(1.05) rotateY(10deg);
-            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
-        }
+    .options {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+    }
 
-        .quiz-card p {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-        }
+    .option {
+        width: 48%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+        transition: 0.3s ease-in-out;
+        text-align: center;
+        cursor: pointer;
+    }
 
-        .btn-custom {
-            background: white;
-            color: #2ebf91;
-            font-weight: bold;
-            border-radius: 25px;
-            padding: 10px 20px;
-            transition: all 0.3s;
-        }
+    .option:hover {
+        background: #2ebf91;
+        color: #fff;
+    }
 
-        .btn-custom:hover {
-            background: #1b9a77;
-            color: white;
-        }
+    .selected {
+        background: #ffcc00 !important;
+        color: #000;
+        font-weight: bold;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .correct {
+        background: #2ebf91 !important;
+        color: white !important;
+    }
 
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-size: 24px;
-            font-weight: bold;
-        }
+    .incorrect {
+        background: #e63946 !important;
+        color: white !important;
+    }
 
-        .hidden {
-            display: none;
-        }
+    .correct-answer {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: green;
+        display: none;
+    }
 
-        .footer {
-            margin-top: auto;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px 0;
-            text-align: center;
-            color: white;
-        }
-    </style>
-</head>
-<body>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(100px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-    <!-- Loading Screen -->
-    <div class="loading">Loading Quizzes...</div>
+    .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        font-size: 24px;
+        font-weight: bold;
+    }
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">WordSmith</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'add_word' %}">Add Word</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'quiz_list' %}">Take a Quiz</a></li>
-                </ul>
+    .hidden {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Loading Screen -->
+<div class="loading">Loading Quizzes...</div>
+
+<!-- Quiz Section -->
+<div class="quiz-container hidden">
+    <h2 class="text-center">📝 Available Quizzes</h2>
+    <div class="row mt-4">
+        {% for quiz in quizzes %}
+        <div class="col-md-12 mb-4">
+            <div class="quiz-card p-4" data-bs-toggle="tooltip" title="Click to select an option">
+                <p>{{ quiz.question_text }}</p>
+                <div class="options">
+                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="1">{{ quiz.option1 }}</div>
+                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="2">{{ quiz.option2 }}</div>
+                </div>
+                <div class="options mt-2">
+                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="3">{{ quiz.option3 }}</div>
+                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="4">{{ quiz.option4 }}</div>
+                </div>
+                <p class="correct-answer">Correct Answer: <span></span></p>
             </div>
         </div>
-    </nav>
-
-    <!-- Quiz Section -->
-    <div class="quiz-container hidden">
-        <h2 class="text-center">📝 Available Quizzes</h2>
-        <div class="row mt-4">
-            {% for quiz in quizzes %}
-                <div class="col-md-6 mb-4">
-                    <div class="quiz-card p-4" data-bs-toggle="tooltip" title="Click to start quiz!">
-                        <p>{{ quiz.question }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+        {% empty %}
+        <p class="text-center">No quizzes available.</p>
+        {% endfor %}
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2025 WordSmith. All rights reserved.</p>
-    </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Show quizzes after a short delay
+    setTimeout(function () {
+        $(".loading").fadeOut();
+        $(".quiz-container").removeClass("hidden").fadeIn();
+    }, 1000);
 
-    <!-- Bootstrap & JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    // Enable Bootstrap tooltips
+    $('[data-bs-toggle="tooltip"]').tooltip();
 
-    <!-- jQuery Enhancements -->
-    <script>
-        $(document).ready(function () {
-            // Show quizzes after a short delay
-            setTimeout(function () {
-                $(".loading").fadeOut();
-                $(".quiz-container").removeClass("hidden").fadeIn();
-            }, 1000);
+    // Handle option selection
+    $(".option").click(function () {
+        var selectedOption = $(this).data("option");
+        var correctOption = $(this).data("correct");
+        var parentCard = $(this).closest(".quiz-card");
 
-            // Enable Bootstrap tooltips
-            $('[data-bs-toggle="tooltip"]').tooltip();
+        // Remove previous selections
+        parentCard.find(".option").removeClass("selected incorrect correct");
 
-            // Quiz card click effect
-            $(".quiz-card").click(function () {
-                alert("Quiz Started!");
-            });
-        });
-    </script>
+        // Mark selected option
+        $(this).addClass("selected");
 
-</body>
-</html>
+        // Check if correct
+        if (selectedOption == correctOption) {
+            $(this).addClass("correct");
+        } else {
+            $(this).addClass("incorrect");
+            parentCard.find(`.option[data-option='${correctOption}']`).addClass("correct");
+        }
+
+        // Reveal correct answer text
+        var correctText = parentCard.find(`.option[data-option='${correctOption}']`).text();
+        parentCard.find(".correct-answer span").text(correctText);
+        parentCard.find(".correct-answer").fadeIn();
+    });
+});
+</script>
+
+{% endblock %}

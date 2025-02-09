@@ -1,8 +1,8 @@
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
+CustomUser = get_user_model()  # Get the custom user model dynamically
 
 def register(request):
     if request.user.is_authenticated:  # Prevent logged-in users from accessing the register page
@@ -15,14 +15,16 @@ def register(request):
         password2 = request.POST['password2']
 
         if password1 == password2:
-            if User.objects.filter(username=username).exists():
+            if CustomUser.objects.filter(username=username).exists():
                 messages.error(request, "Username already taken")
-            elif User.objects.filter(email=email).exists():
+            elif CustomUser.objects.filter(email=email).exists():
                 messages.error(request, "Email already in use")
             else:
-                user = User.objects.create_user(username=username, email=email, password=password1)
+                # Create a new CustomUser instance
+                user = CustomUser.objects.create_user(username=username, email=email, password=password1)
                 user.save()
                 login(request, user)
+                messages.success(request, "Registration successful!")
                 return redirect('home')
         else:
             messages.error(request, "Passwords do not match")
@@ -48,7 +50,7 @@ def user_login(request):
 
     return render(request, 'userApp/login.html')
 
-
 def user_logout(request):
     logout(request)
+    messages.success(request, "You have successfully logged out.")
     return redirect('home')

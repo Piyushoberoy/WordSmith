@@ -11,7 +11,13 @@ if not API_KEY:
 
 genai.configure(api_key=API_KEY)
 
-model = genai.GenerativeModel("gemini-pro")
+# AVAILABLE_MODELS = [
+#     "gemini-pro",
+#     "gemini-pro-vision",
+#     "gemini-1.5-pro-latest",
+#     "gemini-1.5-flash-latest"
+# ]
+model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 def clean_json_response(response_text):
     """
@@ -31,12 +37,19 @@ def generate_word_details(word):
         tuple: (meaning, synonyms, antonyms, example)
     """
     prompt = f"""
-    Provide the following details for the word "{word}" in valid JSON format (without any markdown formatting):
+    You are an educational assistant helping users understand words. Please provide information for the word "{word}" in a safe, educational format.
+
+    - Meaning: A short, neutral definition.
+    - Synonyms: Up to 5 synonyms (if available).
+    - Antonyms: Up to 5 antonyms (if available).
+    - Example Sentence: A neutral sentence using the word.
+
+    Respond in **pure JSON** format (without markdown or additional text):
     {{
-        "meaning": "A concise definition of the word.",
-        "synonyms": ["synonym1", "synonym2", "synonym3", "synonym4", "synonym5"],
-        "antonyms": ["antonym1", "antonym2", "antonym3", "antonym4", "antonym5"],
-        "example": "A sentence using the word correctly."
+        "meaning": "Definition here",
+        "synonyms": ["synonym1", "synonym2", "synonym3"],
+        "antonyms": ["antonym1", "antonym2", "antonym3"],
+        "example": "A correct usage example."
     }}
     """
 
@@ -67,4 +80,3 @@ def generate_word_details(word):
     except Exception as e:
         print("Error:", e)
         return "Error retrieving details.", [], [], ""
-
