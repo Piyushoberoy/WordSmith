@@ -25,6 +25,7 @@ packaging==24.2
 platformdirs==4.3.6
 proto-plus==1.26.0
 protobuf==5.29.3
+psycopg2-binary
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
 pydantic==2.10.6
@@ -40,3 +41,4 @@ uritemplate==4.1.1
 urllib3==2.3.0
 virtualenv==20.26.5
 websockets==14.2
+whitenoise
