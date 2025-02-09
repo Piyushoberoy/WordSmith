@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7c)p4*_7_zp_5x%tjg%%thw#yb7#4_cu%6-c%+nkm#d&&=i!ud
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["WordSmith.onrender.com"]
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dictApp',
     'quizApp',
     'userApp',
+    "whitenoise.runserver_nostatic",
 ]
 
 AUTH_USER_MODEL = 'userApp.CustomUser'  # Custom user model
@@ -121,9 +122,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
