@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> WordSmith - {% block title %} {% endblock %}</title>
+
+        <!-- Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                font-family: 'Poppins', sans-serif;
+            }
+            /* Mode Buttons */
+            .mode-buttons {
+                position: fixed;
+                top: 10px;
+                right: 15px;
+                z-index: 1000;
+            }
+            .mode-buttons button {
+                margin: 3px;
+                padding: 6px 10px;
+                border-radius: 15px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            /* Night Mode */
+            .night-mode {
+                background: #121212 !important;
+                color: #ddd !important;
+            }
+            .night-mode a, .night-mode p, .night-mode h2 {
+                color: #ddd !important;
+            }
+
+            /* Reading Mode (Higher Contrast & Larger Text) */
+            .reading-mode {
+                background: #f4ecd8 !important;
+                color: #4a403a !important;
+                font-size: 18px;
+            }
+
+            /* Focus Mode - Hides Non-Essential UI */
+            .focus-mode .navbar, 
+            .focus-mode .footer, 
+            .focus-mode .carousel {
+                display: none !important;
+            }
+            .focus-mode {
+                background: white !important;
+                color: black !important;
+            }
+            /* Animated Navbar */
+            .navbar {
+                transition: all 0.4s ease-in-out;
+            }
+            .navbar.scrolled {
+                background: rgba(0, 0, 0, 0.9) !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            }
+            .navbar-brand {
+                font-size: 24px;
+                font-weight: bold;
+                color: #2ebf91 !important;
+            }
+            .nav-link {
+                color: white !important;
+                transition: color 0.3s;
+            }
+            .nav-link:hover {
+                color: #2ebf91 !important;
+            }
+            #message-box {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 10px;
+                width: auto;
+                max-width: 60%;
+                z-index: 1050;
+                padding: 10px 20px;
+                font-size: 16px;
+            }        
+            
+            /* Footer */
+            .footer {
+                margin-top: auto;
+                background: #343a40;
+                padding: 20px 0;
+                text-align: center;
+                color: white;
+            }
+        </style>
+        {% block static %} {% endblock %}
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">WordSmith</a>
+
+                <!-- Display Django messages -->
+                {% if messages %}
+                <div id="message-box" class="alert alert-success text-center">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'home' %}">Home</a></li>
+
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'add_word' %}">Add Word</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'quiz_list' %}">Take a
+                                Quiz</a></li>
+                        <div class="ms-auto">
+                            <button id="mode-toggle-btn"
+                                class="btn btn-sm btn-dark"
+                                onclick="toggleMode('night-mode')">🌙</button>
+                            <button class="btn btn-sm btn-warning"
+                                onclick="toggleMode('reading-mode')">📖</button>
+                            <button class="btn btn-sm btn-primary"
+                                onclick="toggleMode('focus-mode')">🎯</button>
+                            <button class="btn btn-sm btn-success"
+                                onclick="resetMode()">🔄</button>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+        {% block body %} {% endblock %}
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 WordSmith. All rights reserved.</p>
+        </footer>
+
+        <!-- Bootstrap & JavaScript -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Navbar Scroll Effect -->
+        <script>
+            function toggleMode(mode) {
+                let currentMode = localStorage.getItem("preferredMode");
+            
+                // Remove all previous modes
+                document.body.classList.remove("night-mode", "reading-mode", "focus-mode");
+            
+                if (currentMode === mode) {
+                    // If clicking the same mode, turn it off
+                    localStorage.removeItem("preferredMode");
+                } else {
+                    // Apply the new mode
+                    document.body.classList.add(mode);
+                    localStorage.setItem("preferredMode", mode);
+                }
+            
+                updateModeButton();
+            }
+
+            function toggleFocusMode() {
+                if (document.body.classList.contains("focus-mode")) {
+                    resetMode();
+                } else {
+                    document.body.classList.remove("night-mode", "reading-mode");
+                    document.body.classList.add("focus-mode");
+                    localStorage.setItem("preferredMode", "focus-mode");
+                }
+            }
+
+            function resetMode() {
+                document.body.classList.remove("night-mode", "reading-mode", "focus-mode");
+                localStorage.removeItem("preferredMode");
+                updateModeButton();
+            }
+
+            function updateModeButton() {
+                let modeButton = document.getElementById("mode-toggle-btn");
+                let currentMode = localStorage.getItem("preferredMode");
+            
+                if (currentMode === "night-mode") {
+                    modeButton.innerHTML = "☀️"; // Sun icon for day mode
+                } else {
+                    modeButton.innerHTML = "🌙"; // Moon icon for night mode
+                }
+            }
+
+            // Load saved mode on page refresh
+            window.onload = function () {
+                const savedMode = localStorage.getItem("preferredMode");
+                if (savedMode) {
+                    document.body.classList.add(savedMode);
+                    let modeButton = document.getElementById("mode-toggle-btn");
+                    modeButton.innerHTML = savedMode === "night-mode" ? "☀️" : "🌙";
+                }
+            };
+
+            // Navbar Scroll Effect
+            window.addEventListener("scroll", function() {
+                let navbar = document.querySelector(".navbar");
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+            });
+
+            // Auto-hide message after 5 seconds
+            setTimeout(function () {
+                let messageBox = document.getElementById("message-box");
+                if (messageBox) {
+                    messageBox.style.transition = "opacity 0.5s ease-out";
+                    messageBox.style.opacity = "0";
+                    setTimeout(() => messageBox.style.display = "none", 500);
+                }
+            }, 5000);
+        </script>
+    </body>
+</html>

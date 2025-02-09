@@ -1,0 +1,178 @@
+{% extends 'basePage.html' %}
+
+{% block title %} Add Word {% endblock %}
+
+{% block static %}
+<style>
+    #wordContainer {
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        margin-top: 80px;
+    }
+
+    .form-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container form {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .form-container p {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-container label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        transition: border-color 0.3s;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .form-container textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    .form-container input:focus,
+    .form-container textarea:focus {
+        border-color: #2ebf91;
+        box-shadow: 0 0 10px rgba(46, 191, 145, 0.5);
+        outline: none;
+    }
+
+    .syn-ant-container {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .syn-ant-container p {
+        flex: 1;
+    }
+
+    .btn-custom {
+        background: white;
+        color: #2ebf91;
+        font-weight: bold;
+        border-radius: 25px;
+        padding: 10px 20px;
+        transition: all 0.3s;
+        border: #18dfa7 2px solid;
+        width: 100%;
+    }
+
+    .btn-custom:hover {
+        background: #18dfa7;
+        color: white;
+    }
+
+    .error-msg {
+        color: red;
+        font-size: 14px;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Add Word Form -->
+<div id="wordContainer" class="container mt-12 pt-5">
+    <h2 class="text-center pb-4">📖 Add a New Word</h2>
+    <div class="form-container">
+        <form method="post" id="wordForm">{% csrf_token %}
+            <span class="error-msg" id="finalError"></span>
+            <p>{{ form.word.label_tag }} {{ form.word }}
+                <span class="error-msg" id="wordError"></span>
+            </p> <!-- Word field -->
+            <p>{{ form.meaning.label_tag }} {{ form.meaning }}
+                <span class="error-msg" id="meaningError"></span>
+            </p> <!-- Meaning field -->
+
+            <div class="syn-ant-container">
+                <p>{{ form.synonyms.label_tag }} {{ form.synonyms }}
+                    <span class="error-msg" id="synonymsError"></span>
+                </p> <!-- Synonyms field -->
+                <p>{{ form.antonyms.label_tag }} {{ form.antonyms }}
+                    <span class="error-msg" id="antonymsError"></span>
+                </p> <!-- Antonyms field -->
+            </div>
+
+            <p>{{ form.example.label_tag }} {{ form.example }}
+                <span class="error-msg" id="exampleError"></span>
+            </p> <!-- Example field -->
+
+            <button type="submit" class="btn btn-custom">Save Word</button>
+        </form>
+    </div>
+</div>
+
+<!-- jQuery Form Validation -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        function validateCommaSeparated(input) {
+            return /^([a-zA-Z]+(?:\s[a-zA-Z]+)?)(,\s*[a-zA-Z]+(?:\s[a-zA-Z]+)?)*$/.test(input);
+        }
+
+        function validateField(field, errorMsg, validator = null) {
+            let value = field.val().trim();
+            let errorElement = field.next(".error-msg");
+            
+            if (value === "") {
+                errorElement.text(errorMsg);
+                return false;
+            }
+            
+            if (validator && !validator(value)) {
+                errorElement.text(errorMsg);
+                return false;
+            }
+            
+            errorElement.text("");
+            return true;
+        }
+
+        $("#id_word").on("input", function() {
+            validateField($(this), "This field is required.");
+        });
+
+        $("#id_synonyms, #id_antonyms").on("input", function() {
+            validateField($(this), "Enter comma-separated words/phrases.", validateCommaSeparated);
+        });
+
+        $("#wordForm").submit(function(event) {
+            let isValid = true;
+
+            isValid &= validateField($("#id_word"), "Word is required.");
+
+            
+            if (!isValid) {
+                event.preventDefault();
+                $("#finalError").text("⚠ Please fill out all fields before submitting!");
+            }
+        });
+    });
+</script>
+
+{% endblock %}
