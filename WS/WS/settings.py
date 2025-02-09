@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7c)p4*_7_zp_5x%tjg%%thw#yb7#4_cu%6-c%+nkm#d&&=i!ud
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["wordsmith-c0iy.onrender.com"]
+ALLOWED_HOSTS = ["wordsmith-c0iy.onrender.com", "127.0.0.1"]
 
 
 # Application definition
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
 ]
 
-AUTH_USER_MODEL = 'userApp.CustomUser'  # Custom user model
+# AUTH_USER_MODEL = 'userApp.CustomUser'  # Custom user model
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
