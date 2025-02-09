@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
 ]
 
-# AUTH_USER_MODEL = 'userApp.CustomUser'  # Custom user model
+AUTH_USER_MODEL = 'userApp.CustomUser'  # Custom user model
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
