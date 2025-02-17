@@ -7,7 +7,9 @@
         <title> WordSmith | {% block title %} {% endblock %}</title>
 
         <!-- Bootstrap 5 -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
         <!-- Custom CSS -->
         <style>
@@ -67,17 +69,129 @@
                 background: rgba(0, 0, 0, 0.9) !important;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             }
+            /* Navbar Brand AI Glow */
             .navbar-brand {
                 font-size: 24px;
                 font-weight: bold;
-                color: #2ebf91 !important;
+                color: #00fff2 !important;
+                text-shadow: 0 0 15px rgba(0, 255, 242, 0.8);
+                transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
             }
+        
+            .navbar-brand:hover {
+                transform: scale(1.1);
+                text-shadow: 0 0 20px #00fff2, 0 0 40px rgba(0, 255, 242, 0.8);
+            }
+        
+            /* Neural Network Hover Links */
             .nav-link {
                 color: white !important;
-                transition: color 0.3s;
+                position: relative;
+                font-weight: 500;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
             }
+        
             .nav-link:hover {
-                color: #2ebf91 !important;
+                color: #00fff2 !important;
+                text-shadow: 0 0 15px #00fff2, 0 0 30px rgba(0, 255, 242, 0.8);
+            }
+        
+            /* Neural Pathway Effect */
+            .nav-link::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #00fff2, transparent);
+                bottom: 0;
+                left: -100%;
+                transition: left 0.3s ease-in-out;
+            }
+        
+            .nav-link:hover::before {
+                left: 0;
+            }
+        
+            /* Neural Dropdown */
+            .navbar .dropdown-menu {
+                background: rgba(0, 0, 0, 0.9);
+                border: 1px solid #00fff2;
+                box-shadow: 0 0 20px rgba(0, 255, 242, 0.8);
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+                animation: dropdownNeural 0.4s ease-in-out;
+            }
+        
+            @keyframes dropdownNeural {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+        
+            /* Neural Pulsing Dropdown Items */
+            .navbar .dropdown-item {
+                color: white;
+                position: relative;
+                font-weight: 500;
+                padding: 12px 18px;
+                transition: all 0.3s ease-in-out;
+            }
+        
+            /* AI Neural Link Connection */
+            .navbar .dropdown-item::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -10px;
+                width: 8px;
+                height: 8px;
+                background: #00fff2;
+                border-radius: 50%;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            }
+        
+            .navbar .dropdown-item:hover::before {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        
+            /* Floating Dropdown Effect */
+            .navbar .dropdown-item:hover {
+                background: rgba(0, 255, 242, 0.2);
+                color: #00fff2 !important;
+                text-shadow: 0 0 10px #00fff2, 0 0 20px rgba(0, 255, 242, 0.8);
+                transform: scale(1.05);
+            }
+        
+            /* AI Data Stream Animation in Dropdown */
+            .navbar .dropdown-menu::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, #00fff2, transparent);
+                bottom: 0;
+                left: 0;
+                animation: aiDataStream 1.5s linear infinite;
+            }
+        
+            @keyframes aiDataStream {
+                0% {
+                    left: -100%;
+                }
+                50% {
+                    left: 0%;
+                }
+                100% {
+                    left: 100%;
+                }
             }
             #message-box {
                 position: absolute;
@@ -99,7 +213,12 @@
                 text-align: center;
                 color: white;
             }
+
+
+        
+
         </style>
+        
         {% block static %} {% endblock %}
     </head>
     <body>
@@ -128,7 +247,29 @@
                         <li class="nav-item"><a class="nav-link"
                                 href="{% url 'home' %}">Home</a></li>
 
+                        <!-- Dropdown for DictApp -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="dictAppDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                📚 DictApp
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"
+                                        href="{% url 'view_dictionary' %}">View
+                                        Dictionary</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{% url 'add_word' %}">Add
+                                        Word</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'quiz_list' %}">Take a
+                                Quiz</a></li>
+
                         {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link"
+                                href="{% url 'dashboard' %}">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link"
                                 href="{% url 'logout' %}">Logout</a></li>
                         {% else %}
@@ -138,19 +279,14 @@
                                 href="{% url 'login' %}">Login</a></li>
                         {% endif %}
 
-                        <li class="nav-item"><a class="nav-link"
-                                href="{% url 'add_word' %}">Add Word</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="{% url 'quiz_list' %}">Take a
-                                Quiz</a></li>
                         <div class="ms-auto">
                             <button id="mode-toggle-btn"
                                 class="btn btn-sm btn-dark"
                                 onclick="toggleMode('night-mode')">🌙</button>
                             <button class="btn btn-sm btn-warning"
                                 onclick="toggleMode('reading-mode')">📖</button>
-                            <button class="btn btn-sm btn-primary"
-                                onclick="toggleMode('focus-mode')">🎯</button>
+                            <!-- <button class="btn btn-sm btn-primary"
+                                onclick="toggleMode('focus-mode')">🎯</button> -->
                             <button class="btn btn-sm btn-success"
                                 onclick="resetMode()">🔄</button>
                         </div>
@@ -165,7 +301,52 @@
         <!-- Footer -->
         <footer class="footer">
             <p>© 2025 WordSmith. All rights reserved.</p>
+            {% if user.is_authenticated %}
+            <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                ✉️ Give Feedback
+            </button>
+            {% else %}
+            <button class="btn btn-light btn-sm" disabled title="Login to submit feedback">
+                ✉️ Give Feedback (Login Required)
+            </button>
+            {% endif %}
         </footer>
+
+        <!-- Feedback Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="feedbackModalLabel">We Value Your Feedback! 📝</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="feedbackForm">
+                            <div class="mb-3">
+                                <label for="feedbackName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="feedbackName" value="{{ user_name }}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="feedbackEmail" class="form-label">Your Email</label>
+                                <input type="email" class="form-control" id="feedbackEmail" value="{{ user_email }}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="feedbackMessage" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="feedbackMessage" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Feedback 🚀</button>
+                        </form>
+                        <div id="feedbackSuccess" class="alert alert-success mt-3 d-none">
+                            ✅ Thank you! Your feedback has been sent.
+                        </div>
+                        <div id="feedbackError" class="alert alert-danger mt-3 d-none">
+                            ❌ Error! Please try again later.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Bootstrap & JavaScript -->
         <script
@@ -247,6 +428,36 @@
                     setTimeout(() => messageBox.style.display = "none", 500);
                 }
             }, 5000);
+
+            document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+            
+                let name = document.getElementById("feedbackName").value;
+                let email = document.getElementById("feedbackEmail").value;
+                let message = document.getElementById("feedbackMessage").value;
+            
+                fetch("{% url 'send_feedback' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token }}"
+                    },
+                    body: JSON.stringify({ name, email, message })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("feedbackSuccess").classList.remove("d-none");
+                        document.getElementById("feedbackForm").reset();
+                    } else {
+                        document.getElementById("feedbackError").classList.remove("d-none");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("feedbackError").classList.remove("d-none");
+                });
+            });
         </script>
     </body>
 </html>

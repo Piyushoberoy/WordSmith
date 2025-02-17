@@ -27,7 +27,10 @@ def add_word(request):
             
             # Assign the logged-in user as the creator
             word.created_by = request.user
-            word.save()
+            if Word.objects.filter(word=word).exists():
+                messages.error(request, "This word already exists in the dictionary!")
+            else:
+                word.save()
             print("Attempting to create MCQs...")
             mcq_response = create_mcq(request, word.word)
             print(mcq_response)
@@ -47,3 +50,8 @@ def add_word(request):
         form = WordForm()
 
     return render(request, 'dictApp/addWord.html', {'form': form})
+
+@login_required
+def view_dictionary(request):
+    words = Word.objects.all()
+    return render(request, 'dictApp/view_dictionary.html', {'words': words})

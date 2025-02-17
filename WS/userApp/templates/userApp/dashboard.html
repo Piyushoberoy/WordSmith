@@ -1,0 +1,150 @@
+{% extends 'basePage.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block static %}
+<!-- Bootstrap & Custom Styles -->
+<style>
+    body {
+        background: linear-gradient(to right, #141e30, #243b55);
+        color: #ffffff;
+    }
+
+    .dashboard-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 30px;
+    }
+
+    .stat-box {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
+
+    .stat-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 255, 255, 0.5);
+    }
+
+    .chart-container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .neon-text {
+        text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="dashboard-container">
+    <h2 class="text-center neon-text">🚀 User Dashboard</h2>
+
+    <!-- Stats Row -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="stat-box">
+                <h3>Total Words Added</h3>
+                <h2>{{ total_words }}</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-box">
+                <h3>Total MCQs Created</h3>
+                <h2>{{ total_mcqs }}</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-box">
+                <h3>Total Words Learned</h3>
+                <h2>{{ total_words_learned }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Score Chart -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="chart-container">
+                <h4 class="text-center">📊 Quiz Performance</h4>
+                <canvas id="quizScoreChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="chart-container">
+                <h4 class="text-center">📈 Learning Progress</h4>
+                <canvas id="learningProgressChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Pass Django Variables as JSON -->
+<script type="application/json" id="quizDatesData">{{ quiz_dates|safe }}</script>
+<script type="application/json" id="quizScoresData">{{ quiz_scores|safe }}</script>
+<script type="application/json" id="learningDatesData">{{ learning_dates|safe }}</script>
+<script type="application/json" id="learningProgressData">{{ learning_progress|safe }}</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () { // Delay execution
+            var quizDates = JSON.parse(document.getElementById("quizDatesData").textContent);
+            var quizScores = JSON.parse(document.getElementById("quizScoresData").textContent);
+            var learningDates = JSON.parse(document.getElementById("learningDatesData").textContent);
+            var learningProgress = JSON.parse(document.getElementById("learningProgressData").textContent);
+        
+            if (quizDates.length > 0 && quizScores.length > 0) {
+                var ctx1 = document.getElementById("quizScoreChart").getContext("2d");
+                new Chart(ctx1, {
+                    type: "bar",
+                    data: {
+                        labels: quizDates,
+                        datasets: [{
+                            label: "Quiz Scores",
+                            data: quizScores,
+                            backgroundColor: "rgba(0, 255, 255, 0.6)",
+                            borderColor: "cyan",
+                            borderWidth: 2
+                        }]
+                    }
+                });
+            } else {
+                console.warn("No quiz data available.");
+            }
+    
+            if (learningDates.length > 0 && learningProgress.length > 0) {
+                var ctx2 = document.getElementById("learningProgressChart").getContext("2d");
+                new Chart(ctx2, {
+                    type: "line",
+                    data: {
+                        labels: learningDates,
+                        datasets: [{
+                            label: "Words Learned",
+                            data: learningProgress,
+                            borderColor: "cyan",
+                            backgroundColor: "rgba(0, 255, 255, 0.2)",
+                            borderWidth: 2
+                        }]
+                    }
+                });
+            } else {
+                console.warn("No learning progress data available.");
+            }
+        }, 500); // Small delay to ensure elements are loaded
+    });
+    
+</script>
+
+
+{% endblock %}

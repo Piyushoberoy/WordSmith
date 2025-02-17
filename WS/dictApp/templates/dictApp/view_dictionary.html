@@ -1,0 +1,132 @@
+{% extends 'basePage.html' %}
+
+{% block title %} List of Words {% endblock %}
+
+{% block static %}
+<style>
+    .table-container {
+        margin: 20px auto;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        margin-top: 80px;
+    }
+    .table {
+        color: white;
+    }
+    .table-hover tbody tr:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    .search-container {
+        display: flex;
+        gap: 10px;
+    }
+    .modal-content {
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        border-radius: 12px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container table-container">
+    <h2 class="text-center mb-4">📖 Word Dictionary</h2>
+    
+    <div class="search-container mb-3">
+        <input type="text" id="search" class="form-control" placeholder="Search words...">
+        <select id="filterType" class="form-select">
+            <option value="word">Word</option>
+            <option value="synonyms">Synonym</option>
+            <option value="antonyms">Antonym</option>
+            <option value="example">Example</option>
+        </select>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Word</th>
+                <th>Meaning</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="wordTable">
+            {% for word in words %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ word.word }}</td>
+                <td>{{ word.meaning }}</td>
+                <td>
+                    <button class="btn btn-info btn-sm view-details" data-bs-toggle="modal" data-bs-target="#wordModal"
+                        data-bs-word="{{ word.word }}" data-bs-meaning="{{ word.meaning }}"
+                        data-bs-synonyms="{{ word.synonyms }}" data-bs-antonyms="{{ word.antonyms }}"
+                        data-bs-example="{{ word.example }}">
+                        View Details
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal for Word Details -->
+<div class="modal fade" id="wordModal" tabindex="-1" aria-labelledby="wordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="wordModalLabel">Word Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>📝 Word:</strong> <span id="modalWord"></span></p>
+                <p><strong>📖 Meaning:</strong> <span id="modalMeaning"></span></p>
+                <p><strong>🟢 Synonyms:</strong> <span id="modalSynonyms"></span></p>
+                <p><strong>🔴 Antonyms:</strong> <span id="modalAntonyms"></span></p>
+                <p><strong>✍️ Example:</strong> <span id="modalExample"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("search").addEventListener("keyup", function () {
+            var value = this.value.toLowerCase();
+            var filterType = document.getElementById("filterType").value;
+            
+            document.querySelectorAll("#wordTable tr").forEach(row => {
+                var textToSearch = row.querySelector(`td:nth-child(${filterType === 'word' ? 2 : filterType === 'synonyms' ? 4 : filterType === 'antonyms' ? 5 : 6})`).textContent.toLowerCase();
+                row.style.display = textToSearch.includes(value) ? "" : "none";
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var wordModal = document.getElementById("wordModal");
+        wordModal.addEventListener("show.bs.modal", function (event) {
+            var button = event.relatedTarget; // Button that triggered the modal
+
+            // Fetching attributes correctly
+            var word = button.getAttribute("data-bs-word") || "N/A";
+            var meaning = button.getAttribute("data-bs-meaning") || "N/A";
+            var synonyms = button.getAttribute("data-bs-synonyms") || "N/A";
+            var antonyms = button.getAttribute("data-bs-antonyms") || "N/A";
+            var example = button.getAttribute("data-bs-example") || "N/A";
+
+            // Updating modal content
+            document.getElementById("modalWord").textContent = word;
+            document.getElementById("modalMeaning").textContent = meaning;
+            document.getElementById("modalSynonyms").textContent = synonyms;
+            document.getElementById("modalAntonyms").textContent = antonyms;
+            document.getElementById("modalExample").textContent = example;
+        });
+    });
+</script>
+
+{% endblock %}

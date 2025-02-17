@@ -1,7 +1,8 @@
 from django.urls import path, include
-from .views import add_word
+from .views import *
 
 
 urlpatterns = [
-    path('', add_word, name='add_word'),
+    path('', view_dictionary, name='view_dictionary'),
+    path('addWord/', add_word, name='add_word'),
 ]

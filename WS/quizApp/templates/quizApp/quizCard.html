@@ -1,0 +1,27 @@
+<!-- Quiz Cards Container (Row of Quizzes) -->
+<div class="row mt-4" id="quiz-list-container">
+    {% for quiz in quizzes %}
+    <div class="col-md-12 mb-4">
+        <div class="quiz-card p-4" data-mcq-id="{{ quiz.id }}"
+            data-word="{{ quiz.word.word }}" data-bs-toggle="tooltip"
+            title="Click to select an option">
+            <p>{{ quiz.question_text }}</p>
+            <div class="options">
+                <div class="option" data-correct="{{ quiz.correct_option }}"
+                    data-option="1">{{ quiz.option1 }}</div>
+                <div class="option" data-correct="{{ quiz.correct_option }}"
+                    data-option="2">{{ quiz.option2 }}</div>
+            </div>
+            <div class="options mt-2">
+                <div class="option" data-correct="{{ quiz.correct_option }}"
+                    data-option="3">{{ quiz.option3 }}</div>
+                <div class="option" data-correct="{{ quiz.correct_option }}"
+                    data-option="4">{{ quiz.option4 }}</div>
+            </div>
+            <p class="correct-answer">Correct Answer: <span></span></p>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-center">No quizzes available.</p>
+    {% endfor %}
+</div>

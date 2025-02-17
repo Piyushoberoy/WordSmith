@@ -4,7 +4,15 @@
 
 {% block static %}
 <!-- Custom Styles -->
-<style>    
+<style>
+    .score-container {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2ebf91;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 80px;
+    }
     .quiz-container {
         max-width: 900px;
         margin: auto;
@@ -15,6 +23,31 @@
         border-radius: 20px;
         background: #fff;
     }
+    #dropdownMenu .dropdown-item {
+        background-color: #fff;  /* White background */
+        color: #000;  /* Black text */
+    }
+    
+    /* Hover effect */
+    #dropdownMenu .dropdown-item:hover {
+        background-color: #2ebf91;  /* Highlight on hover */
+        color: black;  /* White text on hover */
+    }
+    /* Style for the dropdown button */
+    .btn.dropdown-toggle {
+        background-color: #2ebf91;  /* Set a nice green color */
+        color: white;
+        border: none;  /* Remove border */
+    }
+
+    /* On hover, change the button color */
+    .btn.dropdown-toggle:hover {
+        background-color: #218c6e;  /* Slightly darker green */
+    }
+    #dropdownMenu {
+        z-index: 9999;
+    }
+
 
     .quiz-card {
         background: rgba(255, 255, 255, 0.9);
@@ -102,6 +135,23 @@
     .hidden {
         display: none;
     }
+    .quiz-card .hidden {
+        display: none !important;
+    }
+    .final-score {
+        display: none; /* Initially hidden */
+        font-size: 22px;
+        font-weight: bold;
+        color: #2ebf91;
+        text-align: center;
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background: rgba(46, 191, 145, 0.1);
+        border: 2px solid #2ebf91;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+    
 </style>
 {% endblock %}
 
@@ -111,34 +161,55 @@
 <div class="loading">Loading Quizzes...</div>
 
 <!-- Quiz Section -->
-<div class="quiz-container hidden">
-    <h2 class="text-center">📝 Available Quizzes</h2>
-    <div class="row mt-4">
-        {% for quiz in quizzes %}
-        <div class="col-md-12 mb-4">
-            <div class="quiz-card p-4" data-bs-toggle="tooltip" title="Click to select an option">
-                <p>{{ quiz.question_text }}</p>
-                <div class="options">
-                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="1">{{ quiz.option1 }}</div>
-                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="2">{{ quiz.option2 }}</div>
-                </div>
-                <div class="options mt-2">
-                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="3">{{ quiz.option3 }}</div>
-                    <div class="option" data-correct="{{ quiz.correct_option }}" data-option="4">{{ quiz.option4 }}</div>
-                </div>
-                <p class="correct-answer">Correct Answer: <span></span></p>
-            </div>
-        </div>
-        {% empty %}
-        <p class="text-center">No quizzes available.</p>
+<div class="score-container hidden">
+    🏆 Your Score: <span id="score">0</span> / <span id="total-questions"></span>
+</div>
+<h2 class="text-center">📝 Available Quizzes</h2>
+<div class="input-group">
+    <!-- Search input -->
+    <input type="text" class="form-control" id="searchInput"
+        placeholder="Search options..." onkeyup="filterDropdown()">
+
+    <!-- Dropdown button -->
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+        data-bs-toggle="dropdown">
+        Select Option
+    </button>
+
+    <!-- Dropdown menu -->
+    <ul class="dropdown-menu" id="dropdownMenu">
+        {% for word in words %}
+            <li><a class="dropdown-item" href="#"
+                    onclick="selectOption('{{ word }}')" style="color: #000;">{{ word }}</a></li>
         {% endfor %}
+        <li><a class="dropdown-item" href="#" onclick="selectOption('All')"
+                style="color: #000;">All</a></li>
+    </ul>
+</div>
+<div class="quiz-container hidden">
+    <!-- Quiz Cards Container (Row of Quizzes) -->
+    <div class="row mt-4" id="quiz-list-container">
+        <!-- This is where the quiz cards will be rendered (using quiz_cards.html template) -->
+        {% include 'quizApp/quizCard.html' with quizzes=quizzes %}
     </div>
 </div>
 
+<div class="final-score"></div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    let score = 0;
+    let answeredQuestions = 0;
+    let totalQuestions = $(".quiz-card").length;
+    
+    let attemptsData = []; // Store all attempts before sending
 $(document).ready(function () {
     // Show quizzes after a short delay
+    // After filtering, update the total number of questions
+
+    $("#total-questions").text(totalQuestions);
+    score = 0; // Reset the score when the quizzes are filtered
+    $("#score").text(score); // Update score display
     setTimeout(function () {
         $(".loading").fadeOut();
         $(".quiz-container").removeClass("hidden").fadeIn();
@@ -148,7 +219,7 @@ $(document).ready(function () {
     $('[data-bs-toggle="tooltip"]').tooltip();
 
     // Handle option selection
-    $(".option").click(function () {
+    $(document).on("click", "#quiz-list-container .quiz-card .option", function () {
         var selectedOption = $(this).data("option");
         var correctOption = $(this).data("correct");
         var parentCard = $(this).closest(".quiz-card");
@@ -172,7 +243,142 @@ $(document).ready(function () {
         parentCard.find(".correct-answer span").text(correctText);
         parentCard.find(".correct-answer").fadeIn();
     });
+
+    $('[data-bs-toggle="tooltip"]').tooltip(); // Enable Bootstrap tooltips
+
+    // Show quizzes after a short delay
+    setTimeout(function () {
+        $(".loading").fadeOut();
+        $(".quiz-container, .score-container").removeClass("hidden").fadeIn();
+    }, 1000);
+
+    // Handle option selection
+    $(document).on("click", "#quiz-list-container .quiz-card .option",function () {
+        var selectedOption = $(this).data("option");
+        var correctOption = $(this).data("correct");
+        var parentCard = $(this).closest(".quiz-card");
+        var mcqId = parentCard.data("mcq-id");
+
+        // Prevent selecting another option once answered
+        if (parentCard.hasClass("answered")) return;
+
+        parentCard.addClass("answered"); // Mark as answered
+        answeredQuestions++; // Increment answered count
+
+        // Remove previous selections
+        parentCard.find(".option").removeClass("selected incorrect correct");
+
+        // Mark selected option
+        $(this).addClass("selected");
+
+        // Check if correct
+        let isCorrect = selectedOption == correctOption;
+        if (isCorrect) {
+            $(this).addClass("correct");
+            score++; // Increase score for correct answers
+        } else {
+            $(this).addClass("incorrect");
+            parentCard.find(`.option[data-option='${correctOption}']`).addClass("correct");
+        }
+
+        // Reveal correct answer text
+        var correctText = parentCard.find(`.option[data-option='${correctOption}']`).text();
+        parentCard.find(".correct-answer span").text(correctText);
+        parentCard.find(".correct-answer").fadeIn();
+
+        // Update Score Display
+        $("#score").text(score);
+
+        // Store attempt data
+        attemptsData.push({
+            mcq_id: mcqId,
+            selected_option: selectedOption
+        });
+
+        // Show final score when all questions are answered
+        if (answeredQuestions === totalQuestions) {
+            $(".final-score").html(`🎉 You scored ${score} / ${totalQuestions}`).fadeIn();
+            console.log("Final Score:", score);
+        
+            $.ajax({
+                type: "POST",
+                url: "save-attempt/",  // Make sure this endpoint expects a total score
+                contentType: "application/json",
+                data: JSON.stringify({
+                    total_score: score,  // Send only the total score
+                    max_score: totalQuestions,  // Send only the total score
+                    total_questions: totalQuestions,  // Send total questions for reference
+                    selected_word: selectedWord  // Send total questions for reference
+                }),
+                headers: { "X-CSRFToken": "{{ csrf_token }}" },
+                success: function (response) {
+                    console.log("Final Score Saved:", response);
+                },
+                error: function (error) {
+                    console.error("Error saving final score:", error);
+                }
+            });
+        }
+    });
 });
+
+function filterDropdown() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.querySelectorAll("#dropdownMenu .dropdown-item");
+
+    items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(input) ? "" : "none";
+    });
+}
+
+let selectedWord = "";  // This will store the selected word from the dropdown
+
+function selectOption(value) {
+    document.getElementById("searchInput").value = value;
+    selectedWord = value;  // Save selected word
+    resetScore();
+    filterQuizzes(selectedWord);
+    $.ajax({
+        type: "GET",  // Assuming you're using GET for filtering
+        url: "{% url 'filter_quizzes' %}",  // URL to your filter view in Django
+        data: {
+            'word': selectedWord  // Pass selected word as query parameter
+        },
+        success: function(response) {
+            if (response.filtered_quizzes_html) {
+                // Update the quiz container with the new MCQs
+                $('.quiz-container').html(response.filtered_quizzes_html);
+                totalQuestions = $(".quiz-card").length;
+                $("#total-questions").text(totalQuestions);
+            } else {
+                console.error("Response does not contain filtered_quizzes_html.");
+            }
+        },
+        error: function(error) {
+            console.error("Error fetching filtered quizzes:", error);
+        }
+    });
+    
+}
+
+function resetScore() {
+    score = 0;  // Reset the score
+    answeredQuestions = 0;  // Reset answered questions count
+    $("#score").text(score);  // Update the score display
+    $(".final-score").fadeOut();  // Hide final score
+}
+
+function filterQuizzes() {
+    $(".quiz-card").each(function() {
+        let quizWord = $(this).data("word");  // Assuming you have the `word` data in each quiz card
+        
+        if (selectedWord === "" || selectedWord === quizWord || selectedWord === "All") {
+            $(this).removeClass("hidden");  // Show quiz if it matches selected word or no word is selected
+        } else {
+            $(this).addClass("hidden");  // Hide quiz if it doesn't match
+        }
+    });
+}
 </script>
 
 {% endblock %}

@@ -18,7 +18,7 @@ genai.configure(api_key=API_KEY)
 #     "gemini-1.5-pro-latest",
 #     "gemini-1.5-flash-latest"
 # ]
-model = genai.GenerativeModel("gemini-1.5-flash-latest")
+model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
 
 def clean_json_response(response_text):
@@ -84,7 +84,7 @@ def generate_mcq(word):
         return {"error": "Insufficient data to generate MCQ."}
 
     prompt = f"""
-    Generate 10 unique MCQs for word "{word}" with details "{synonyms, antonyms, example}", with three incorrect and one correct option, in valid JSON format (without any markdown formatting), where "i" represents mcq number e.g., mcq_1, mcq_2 and so on:
+    Generate 10 unique MCQs for word "{word}" with details "{synonyms, antonyms, example}", with three incorrect and one correct option, in valid JSON format (without any markdown formatting), where "i" represents mcq number e.g., mcq_1, mcq_2 and so on double check your responses before generating:
     {{
     "mcq_1": {{
         "question": "What is the meaning of {word}?",

@@ -14,8 +14,10 @@
     .carousel-caption {
         background: rgba(0, 0, 0, 0.7);
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 10px !important;
         animation: fadeInUp 1s ease-in-out;
+        height: 100%;
+        margin-top: 80px;
     }
     .carousel-item.active {
         transform: scale(1.05);
@@ -68,26 +70,27 @@
         background-color: #1b9a77;
         color: white;
     }
+
+    
 </style>
 {% endblock %}
 
 {% block body %}
 <!-- Carousel Section -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" style="margin-top: 60px;">
     <div class="carousel-inner">
         <div class="carousel-item active"
             style="background-image: url('https://source.unsplash.com/1200x600/?books,learning');">
-            <div class="carousel-caption">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center">
                 <h2>Expand Your Vocabulary</h2>
-                <p>Discover new words and enhance your language
-                    skills.</p>
+                <p>🌱 Broaden your word bank with new and powerful words. Enhance your communication skills by learning definitions, synonyms, antonyms, and usage examples that help you express yourself more effectively.</p>
             </div>
         </div>
         <div class="carousel-item"
             style="background-image: url('https://source.unsplash.com/1200x600/?writing,dictionary');">
-            <div class="carousel-caption">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center">
                 <h2>Test Your Knowledge</h2>
-                <p>Take quizzes to master your vocabulary.</p>
+                <p>🧠 Challenge yourself with interactive quizzes designed to reinforce your learning. From multiple-choice questions to fill-in-the-blank exercises, test your vocabulary skills and track your progress effortlessly.</p>
             </div>
         </div>
     </div>
@@ -133,11 +136,13 @@
 </div>
 
 <!-- Call to Action -->
+{% if not user.is_authenticated %}
 <div class="cta-section">
     <h2>Join WordSmith Today</h2>
     <p>Sign up now and become a vocabulary expert.</p>
-    <a href="{% url 'register' %}" class="btn btn-custom">Get
-        Started</a>
+    <a href="{% url 'register' %}" class="btn btn-custom">Get Started</a>
 </div>
+{% endif %}
+
 
 {% endblock %}

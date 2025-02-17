@@ -20,6 +20,7 @@ from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
+    path("send-feedback/", send_feedback, name="send_feedback"),
     path('admin/', admin.site.urls),
     path('quiz/', include('quizApp.urls')),
     path('dictionary/', include('dictApp.urls')),

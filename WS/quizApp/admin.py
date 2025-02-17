@@ -1,4 +1,5 @@
 from django.contrib import admin
-from quizApp.models import MCQ
+from quizApp.models import *
 
 admin.site.register(MCQ)
+admin.site.register(QuizAttempt)

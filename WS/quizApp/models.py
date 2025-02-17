@@ -1,6 +1,7 @@
 from django.db import models
 from dictApp.models import Word
 from userApp.models import CustomUser
+from django.utils.timezone import now
 
 class MCQ(models.Model):
     id = models.AutoField(primary_key=True)
@@ -32,3 +33,15 @@ class MCQ(models.Model):
 
     def __str__(self):
         return f"MCQ for {self.word}"
+    
+class QuizAttempt(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    word = models.ForeignKey(Word, on_delete=models.CASCADE, null=True)
+    score = models.PositiveIntegerField(default=0)
+    maxScore = models.PositiveIntegerField(default=0)
+    date_attempted = models.DateTimeField(default=now)
+
+    def __str__(self):
+        word_str = self.word.word if self.word else 'All Words'
+        return f"Attempt-{self.id} ---==> MCQ Score: {self.score} out of {self.maxScore} for word '{word_str}' of user '{self.user.username}'"

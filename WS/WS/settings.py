@@ -134,3 +134,12 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
+LOGIN_URL = '/user/login/'  # Redirects users to the login page
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ynr24genius@gmail.com'  # Your email
+EMAIL_HOST_PASSWORD = 'yryvnenmgycfzddj'  # App password, not your email password
