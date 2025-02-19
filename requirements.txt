@@ -42,3 +42,4 @@ urllib3==2.3.0
 virtualenv==20.26.5
 websockets==14.2
 whitenoise
+dj_database_url
