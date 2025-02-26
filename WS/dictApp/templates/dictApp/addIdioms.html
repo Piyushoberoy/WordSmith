@@ -1,0 +1,156 @@
+{% extends 'basePage.html' %}
+
+{% block title %} Add Idiom {% endblock %}
+
+{% block static %}
+<style>
+    #idiomContainer {
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        margin-top: 80px;
+    }
+
+    .form-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container form {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .form-container p {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-container label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        transition: border-color 0.3s;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .form-container textarea {
+        height: 100px;
+        resize: none;
+    }
+
+    .form-container input:focus,
+    .form-container textarea:focus {
+        border-color: #2ebf91;
+        box-shadow: 0 0 10px rgba(46, 191, 145, 0.5);
+        outline: none;
+    }
+
+    .btn-custom {
+        background: white;
+        color: #2ebf91;
+        font-weight: bold;
+        border-radius: 25px;
+        padding: 10px 20px;
+        transition: all 0.3s;
+        border: #18dfa7 2px solid;
+        width: 100%;
+    }
+
+    .btn-custom:hover {
+        background: #18dfa7;
+        color: white;
+    }
+
+    .error-msg {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Add Idiom Form -->
+<div id="idiomContainer" class="container mt-12 pt-5">
+    <h2 class="text-center pb-4">🎭 Add a New Idiom</h2>
+    <div class="form-container">
+        <form method="post" id="idiomForm">{% csrf_token %}
+            <span class="error-msg" id="finalError"></span>
+
+            <p>{{ form.phrase.label_tag }} {{ form.phrase }}
+                <span class="error-msg" id="phraseError"></span>
+            </p> <!-- Idiom field -->
+            
+            <p>{{ form.meaning.label_tag }} {{ form.meaning }}
+                <span class="error-msg" id="meaningError"></span>
+            </p> <!-- Meaning field -->
+
+            <p>{{ form.example.label_tag }} {{ form.example }}
+                <span class="error-msg" id="exampleError"></span>
+            </p> <!-- Example field -->
+
+            <p>{{ form.category.label_tag }} {{ form.category }}
+                <span class="error-msg" id="categoryError"></span>
+            </p> <!-- Category field -->
+
+            <p>{{ form.insights.label_tag }} {{ form.insights }}
+                <span class="error-msg" id="insightsError"></span>
+            </p> <!-- Insights field -->
+
+            <p>{{ form.origin.label_tag }} {{ form.origin }}
+                <span class="error-msg" id="originError"></span>
+            </p> <!-- Origin field -->
+
+            <button type="submit" class="btn btn-custom">Save Idiom</button>
+        </form>
+    </div>
+</div>
+
+<!-- jQuery Form Validation -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        function validateField(field, errorMsg) {
+            let value = field.val().trim();
+            let errorElement = field.next(".error-msg");
+
+            if (value === "") {
+                errorElement.text(errorMsg);
+                return false;
+            }
+
+            errorElement.text("");
+            return true;
+        }
+
+        $("#id_phrase").on("input", function() {
+            validateField($(this), "This field is required.");
+        });
+
+        $("#idiomForm").submit(function(event) {
+            let isValid = validateField($("#id_phrase"), "Idiom is required.");
+
+            if (!isValid) {
+                event.preventDefault();
+                $("#finalError").text("⚠ Please fill out the idiom field before submitting!");
+            }
+        });
+    });
+</script>
+
+{% endblock %}

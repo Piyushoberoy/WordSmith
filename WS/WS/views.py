@@ -14,6 +14,7 @@ def home(request):
             'user_name': user_name,
             'user_email': user_email
         })
+    
 def getMessage(name, email, message):
     return f"""
 <html>

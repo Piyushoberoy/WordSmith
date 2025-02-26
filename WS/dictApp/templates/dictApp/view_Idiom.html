@@ -1,0 +1,133 @@
+{% extends 'basePage.html' %}
+
+{% block title %} List of Idioms {% endblock %}
+
+{% block static %}
+<style>
+    .table-container {
+        margin: 20px auto;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        margin-top: 80px;
+    }
+    .table {
+        color: white;
+    }
+    .table-hover tbody tr:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    .search-container {
+        display: flex;
+        gap: 10px;
+    }
+    .modal-content {
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        border-radius: 12px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container table-container">
+    <h2 class="text-center mb-4">🎭 Idiom Dictionary</h2>
+    
+    <div class="search-container mb-3">
+        <input type="text" id="search" class="form-control" placeholder="Search idioms...">
+        <select id="filterType" class="form-select">
+            <option value="phrase">Idiom</option>
+            <option value="meaning">Meaning</option>
+            <option value="example">Example</option>
+            <option value="category">Category</option>
+        </select>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Idiom</th>
+                <th>Meaning</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="idiomTable">
+            {% for idiom in idioms %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ idiom.phrase }}</td>
+                <td>{{ idiom.meaning }}</td>
+                <td>
+                    <button class="btn btn-info btn-sm view-details" data-bs-toggle="modal" data-bs-target="#idiomModal"
+                        data-bs-phrase="{{ idiom.phrase }}" data-bs-meaning="{{ idiom.meaning }}"
+                        data-bs-example="{{ idiom.example }}" data-bs-insights="{{ idiom.insights }}"
+                        data-bs-origin="{{ idiom.origin }}" data-bs-category="{{ idiom.category }}">
+                        View Details
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal for Idiom Details -->
+<div class="modal fade" id="idiomModal" tabindex="-1" aria-labelledby="idiomModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="idiomModalLabel">Idiom Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>🎭 Idiom:</strong> <span id="modalPhrase"></span></p>
+                <p><strong>📖 Meaning:</strong> <span id="modalMeaning"></span></p>
+                <p><strong>✍️ Example:</strong> <span id="modalExample"></span></p>
+                <p><strong>💡 Insights:</strong> <span id="modalInsights"></span></p>
+                <p><strong>🏛️ Origin:</strong> <span id="modalOrigin"></span></p>
+                <p><strong>📂 Category:</strong> <span id="modalCategory"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("search").addEventListener("keyup", function () {
+            var value = this.value.toLowerCase();
+            var filterType = document.getElementById("filterType").value;
+
+            document.querySelectorAll("#idiomTable tr").forEach(row => {
+                var textToSearch = row.querySelector(`td:nth-child(${filterType === 'phrase' ? 2 : filterType === 'meaning' ? 3 : 4})`).textContent.toLowerCase();
+                row.style.display = textToSearch.includes(value) ? "" : "none";
+            });
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var idiomModal = document.getElementById("idiomModal");
+        idiomModal.addEventListener("show.bs.modal", function (event) {
+            var button = event.relatedTarget;
+
+            var phrase = button.getAttribute("data-bs-phrase") || "N/A";
+            var meaning = button.getAttribute("data-bs-meaning") || "N/A";
+            var example = button.getAttribute("data-bs-example") || "N/A";
+            var insights = button.getAttribute("data-bs-insights") || "N/A";
+            var origin = button.getAttribute("data-bs-origin") || "N/A";
+            var category = button.getAttribute("data-bs-category") || "Uncategorized";
+
+            document.getElementById("modalPhrase").textContent = phrase;
+            document.getElementById("modalMeaning").textContent = meaning;
+            document.getElementById("modalExample").textContent = example;
+            document.getElementById("modalInsights").textContent = insights;
+            document.getElementById("modalOrigin").textContent = origin;
+            document.getElementById("modalCategory").textContent = category;
+        });
+    });
+</script>
+
+{% endblock %}

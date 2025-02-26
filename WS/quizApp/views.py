@@ -1,88 +1,195 @@
 import json
 import random
 from .models import MCQ
-from .utils import generate_mcq
-from dictApp.models import Word
 from django.shortcuts import render
 from django.http import JsonResponse
 from userApp.models import CustomUser
-from quizApp.models import QuizAttempt, MCQ
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
+from dictApp.models import Word, Idiom
+from .utils import generate_mcq, generate_idiom_mcq
 from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_exempt
+from quizApp.models import QuizAttempt, MCQ, IdiomMCQ
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def create_mcq(request, word):
-    print("MCQ creation started...")
+    print("[INFO] MCQ creation started...")
 
     try:
+        # Ensure user is authenticated
         if not request.user.is_authenticated:
+            print("[ERROR] User not authenticated.")
             return JsonResponse({"error": "User not authenticated."}, status=403)
 
-        print(f"Looking for word: {word.lower()}")
-        word_instance = Word.objects.get(word__iexact=word.lower())
-        print(f"Found word: {word_instance.word}")
+        print(f"[INFO] Looking for word: {word.lower()}")
+        
+        # Fetch the word instance from the database
+        try:
+            word_instance = Word.objects.get(word__iexact=word.lower())
+            print(f"[INFO] Found word: {word_instance.word}")
+        except Word.DoesNotExist:
+            print("[ERROR] Word not found in the database.")
+            return JsonResponse({"error": "Word not found."}, status=404)
 
-        # Generate MCQ
+        # Generate MCQs
+        print("[INFO] Generating MCQs...")
         mcqs = generate_mcq(word_instance.word)
-        # question, correct_answer, wrong1, wrong2, wrong3 = generate_mcq(word_instance.word)
-        i = 0
-        for mcq in mcqs:
-            question, correct_answer, wrong1, wrong2, wrong3 = mcq["question"], mcq["options"][0], mcq["options"][1], mcq["options"][2], mcq["options"][3]
+
+        if not mcqs:
+            print("[ERROR] Failed to generate MCQs.")
+            return JsonResponse({"error": "Could not generate MCQs."}, status=400)
+
+        # Loop through each MCQ and save it
+        for i, mcq in enumerate(mcqs):
+            question, correct_answer, wrong1, wrong2, wrong3 = (
+                mcq["question"], mcq["options"][0], mcq["options"][1], mcq["options"][2], mcq["options"][3]
+            )
+
             if question == "Error retrieving details.":
+                print("[ERROR] Could not generate valid MCQ.")
                 return JsonResponse({"error": "Could not generate MCQ."}, status=400)
 
-            print(f"Generated Question: {question}")
+            print(f"[DEBUG] Generated Question {i+1}: {question}")
 
-            # Shuffle options and randomly assign the correct option
+            # Shuffle options and determine correct index
             options = [correct_answer, wrong1, wrong2, wrong3]
             random.shuffle(options)
-            correct_option = options.index(correct_answer) + 1  # Get the correct option index (1-4)
+            correct_option = options.index(correct_answer) + 1  # 1-based index
 
-            print(f"Shuffled Options: {options}")
-            print(f"Correct Option Index: {correct_option}")
+            print(f"[DEBUG] Shuffled Options: {options}")
+            print(f"[DEBUG] Correct Option Index: {correct_option}")
 
-            # Debugging user before creation
-            print(f"User: {request.user}")
-            print(f"User Exists: {CustomUser.objects.filter(id=request.user.id).exists()}")
+            # Ensure the user exists in CustomUser model
+            user_exists = CustomUser.objects.filter(id=request.user.id).exists()
+            print(f"[DEBUG] User Exists: {user_exists}")
 
-            # Store MCQ in database
-            mcq = MCQ.objects.create(
+            if not user_exists:
+                print("[ERROR] User does not exist in CustomUser model.")
+                return JsonResponse({"error": "User not found."}, status=500)
+
+            # Save MCQ to the database
+            mcq_instance = MCQ.objects.create(
                 word=word_instance,
                 question_text=question,
                 option1=options[0],
                 option2=options[1],
                 option3=options[2],
                 option4=options[3],
-                correct_option=correct_option,  # Store randomly assigned correct option
+                correct_option=correct_option,
                 created_by=request.user
             )
-            print(f"MCQ-{i+1} created successfully!")
-            i += 1
-        print("All MCQs generated and saved successfully!😊")
+            print(f"[INFO] MCQ-{i+1} created successfully!")
 
-        return JsonResponse({"message": "MCQ created successfully.", "mcq_id": mcq.id}, status = 200)
+        print("[SUCCESS] All MCQs generated and saved successfully! 🎉")
+        return JsonResponse({"message": "MCQs created successfully."}, status=200)
 
-    except Word.DoesNotExist:
-        return JsonResponse({"error": "Word not found."}, status=404)
     except Exception as e:
-        print("Error creating MCQ:", str(e))
+        print(f"[ERROR] Unexpected error while creating MCQs: {str(e)}")
+        return JsonResponse({"error": str(e)}, status=500)
+
+@login_required
+def create_idiom_mcq(request, phrase):
+    print("[INFO] Idiom MCQ creation started...")
+
+    try:
+        # Ensure user is authenticated
+        if not request.user.is_authenticated:
+            print("[ERROR] User not authenticated.")
+            return JsonResponse({"error": "User not authenticated."}, status=403)
+
+        print(f"[INFO] Looking for idiom: {phrase.lower()}")
+
+        # Fetch the idiom from the database
+        try:
+            idiom_instance = Idiom.objects.get(phrase__iexact=phrase.lower())
+            print(f"[INFO] Found idiom: {idiom_instance.phrase}")
+        except Idiom.DoesNotExist:
+            print("[ERROR] Idiom not found in the database.")
+            return JsonResponse({"error": "Idiom not found."}, status=404)
+
+        # Generate MCQs
+        print("[INFO] Generating MCQs...")
+        mcqs = generate_idiom_mcq(idiom_instance.phrase)
+
+        if not mcqs:
+            print("[ERROR] Failed to generate MCQs.")
+            return JsonResponse({"error": "Could not generate MCQs."}, status=400)
+
+        # Loop through and save each MCQ
+        for i, mcq in enumerate(mcqs):
+            question, correct_answer, wrong1, wrong2, wrong3 = (
+                mcq["question"], mcq["options"][0], mcq["options"][1], mcq["options"][2], mcq["options"][3]
+            )
+
+            if question == "Error retrieving details.":
+                print("[ERROR] Could not generate a valid MCQ.")
+                return JsonResponse({"error": "Could not generate MCQ."}, status=400)
+
+            print(f"[DEBUG] Generated Question {i+1}: {question}")
+
+            # Shuffle options and determine the correct index
+            options = [correct_answer, wrong1, wrong2, wrong3]
+            random.shuffle(options)
+            correct_option = options.index(correct_answer) + 1  # 1-based index
+
+            print(f"[DEBUG] Shuffled Options: {options}")
+            print(f"[DEBUG] Correct Option Index: {correct_option}")
+
+            # Ensure the user exists in CustomUser model
+            user_exists = CustomUser.objects.filter(id=request.user.id).exists()
+            print(f"[DEBUG] User Exists: {user_exists}")
+
+            if not user_exists:
+                print("[ERROR] User does not exist in CustomUser model.")
+                return JsonResponse({"error": "User not found."}, status=500)
+
+            # Save MCQ to the database
+            mcq_instance = IdiomMCQ.objects.create(
+                idiom=idiom_instance,
+                question_text=question,
+                option1=options[0],
+                option2=options[1],
+                option3=options[2],
+                option4=options[3],
+                correct_option=correct_option,
+                created_by=request.user
+            )
+            print(f"[INFO] MCQ-{i+1} created successfully!")
+
+        print("[SUCCESS] All MCQs generated and saved successfully! 🎉")
+        return JsonResponse({"message": "MCQs created successfully."}, status=200)
+
+    except Exception as e:
+        print(f"[ERROR] Unexpected error while creating MCQs: {str(e)}")
         return JsonResponse({"error": str(e)}, status=500)
 
 @login_required
 def quiz_list(request):
-    # Fetch the quizzes and any other data you need
-    quizzes = MCQ.objects.all()  # Modify this query as needed
-    words = MCQ.objects.select_related('word').values_list('word__word', flat=True).distinct()
-    
-    # Pass the quizzes and words to the template context
-    return render(request, 'quizApp/quizList.html', {
-        'quizzes': quizzes,
-        'words': words
-    })
+    print("[INFO] Fetching quiz list...")
 
+    try:
+        # Retrieve all MCQs
+        quizzes = MCQ.objects.filter(created_by=request.user)
+        print(f"[DEBUG] Total quizzes retrieved: {quizzes.count()}")
 
-@login_required
+        # Retrieve distinct words related to MCQs
+        words = quizzes.select_related('word').values_list('word__word', flat=True).distinct()
+        print(f"[DEBUG] Total unique words retrieved: {len(words)}")
+
+        # Render the template with quizzes and words
+        return render(request, 'quizApp/quizList.html', {
+            'quizzes': quizzes,
+            'words': words
+        })
+
+    except Exception as e:
+        print(f"[ERROR] Unexpected error while fetching quizzes: {str(e)}")
+        return render(request, 'quizApp/quizList.html', {
+            'quizzes': [],
+            'words': [],
+            'error': "An error occurred while retrieving quizzes."
+        })
+
 # @csrf_exempt  # Remove if using CSRF protection
 # def save_quiz_attempt(request):
 #     if request.method == "POST":
@@ -114,51 +221,83 @@ def quiz_list(request):
 #             return JsonResponse({"error": str(e)}, status=400)
     
 #     return JsonResponse({"error": "Invalid request"}, status=405)
-
 @csrf_exempt
+@login_required
 def save_quiz_attempt(request):
     if request.method == "POST":
+        print("[INFO] Received quiz attempt submission.")
+
         try:
             data = json.loads(request.body)
+            print("[DEBUG] Request Data:", data)
+
+            # Extract data
             total_score = data.get("total_score", 0)
             max_score = data.get("max_score", 0)
             total_questions = data.get("total_questions", 0)
-            selected_word = data.get("selected_word", "")
+            selected_word = data.get("selected_word", "").strip()
 
+            # Check user authentication
             user = request.user if request.user.is_authenticated else None
             if not user:
+                print("[ERROR] Unauthorized access attempt.")
                 return JsonResponse({"error": "User not authenticated"}, status=401)
-            
-            print(data)
-            # Fetch the Word object
-            if selected_word.upper() == "ALL" or selected_word == "":
-                word = None
-            else:
-                word = Word.objects.filter(word=selected_word).first()
+
+            # Fetch Word object if a specific word is selected
+            word = None
+            if selected_word.upper() != "ALL" and selected_word:
+                word = Word.objects.filter(word__iexact=selected_word, created_by = user).first()
                 if not word:
+                    print(f"[ERROR] Word '{selected_word}' not found.")
                     return JsonResponse({"error": "Selected word not found"}, status=400)
 
-            # Save the quiz attempt with the corresponding Word object
-            QuizAttempt.objects.create(user=user, word=word, score=total_score, maxScore = max_score)
+            # Save quiz attempt
+            QuizAttempt.objects.create(
+                user=user, 
+                word=word, 
+                score=total_score, 
+                maxScore=max_score
+            )
+            print("[INFO] Quiz attempt saved successfully.")
 
-            return JsonResponse({"message": "Quiz attempt saved successfully", "score": total_score})
+            return JsonResponse({
+                "message": "Quiz attempt saved successfully",
+                "score": total_score
+            })
+
+        except json.JSONDecodeError:
+            print("[ERROR] Invalid JSON data received.")
+            return JsonResponse({"error": "Invalid JSON format"}, status=400)
+
         except Exception as e:
-            return JsonResponse({"error": str(e)}, status=400)
+            print(f"[ERROR] Unexpected error: {str(e)}")
+            return JsonResponse({"error": str(e)}, status=500)
 
+    print("[ERROR] Invalid request method.")
     return JsonResponse({"error": "Invalid request"}, status=400)
 
-
 def filter_quizzes(request):
-    selected_word = request.GET.get('word', 'All')
+    print("[INFO] Received request to filter quizzes.")
 
-    # Filter quizzes based on selected word
-    if selected_word != 'All':
-        quizzes = MCQ.objects.filter(word__word=selected_word)
-    else:
-        quizzes = MCQ.objects.all()
+    try:
+        selected_word = request.GET.get('word', 'All').strip()
+        user = request.user
+        print(f"[DEBUG] Selected word: {selected_word}")
 
-    # Render the filtered quizzes as HTML
-    filtered_quizzes_html = render_to_string('quizApp/quizCard.html', {'quizzes': quizzes})
-    # Return the HTML as part of the AJAX response
-    return JsonResponse({'filtered_quizzes_html': filtered_quizzes_html})
+        # Filter quizzes based on selected word
+        if selected_word.lower() != 'all':
+            quizzes = MCQ.objects.filter(word__word__iexact=selected_word, created_by=user)
+            print(f"[INFO] Found {quizzes.count()} quizzes for word '{selected_word}'.")
+        else:
+            quizzes = MCQ.objects.filter(created_by=user)
+            print(f"[INFO] Showing all {quizzes.count()} quizzes.")
 
+        # Render the filtered quizzes as HTML
+        filtered_quizzes_html = render_to_string('quizApp/quizCard.html', {'quizzes': quizzes})
+        print("[INFO] Rendered quiz cards successfully.")
+
+        return JsonResponse({'filtered_quizzes_html': filtered_quizzes_html})
+
+    except Exception as e:
+        print(f"[ERROR] Unexpected error: {str(e)}")
+        return JsonResponse({'error': str(e)}, status=500)
