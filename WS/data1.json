@@ -1,0 +1,2819 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-02-09T04:48:24.873Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "rubric",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-02-09T04:49:36.459Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "rubric",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-02-09T08:37:03.560Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "13",
+    "object_repr": "engage",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-02-09T08:38:46.516Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "15",
+    "object_repr": "engage",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-02-09T08:40:14.844Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "16",
+    "object_repr": "engage",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-02-09T08:42:01.115Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "17",
+    "object_repr": "engage",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-02-09T08:45:54.322Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "19",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-02-09T08:45:54.329Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "18",
+    "object_repr": "engage",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-02-09T09:13:35.600Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "20",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-02-09T09:15:48.327Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "21",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-02-09T09:16:36.782Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "22",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-02-09T09:20:50.382Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "23",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-02-09T09:25:20.566Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "24",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-02-09T09:27:38.116Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "25",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-02-09T09:28:26.877Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "26",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.281Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "34",
+    "object_repr": "goat",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.295Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "33",
+    "object_repr": "joker",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.300Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "32",
+    "object_repr": "ghghh",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.300Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "31",
+    "object_repr": "dsadasdsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.307Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "30",
+    "object_repr": "fdffgf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.313Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "29",
+    "object_repr": "sasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.313Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "28",
+    "object_repr": "sdasa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.323Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "14",
+    "object_repr": "humble",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.328Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "12",
+    "object_repr": "endosmosis",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.331Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "rubric",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.338Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "tumid",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.340Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "buckler",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.347Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Genocide",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-02-09T10:15:48.347Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "ghi",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-02-09T10:55:24.709Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "36",
+    "object_repr": "taunt",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.778Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "38",
+    "object_repr": "scorn",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.778Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "37",
+    "object_repr": "taunt",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.792Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "35",
+    "object_repr": "elegant",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.794Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "27",
+    "object_repr": "love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.794Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "11",
+    "object_repr": "intemprance",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.807Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "ameliorate",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.811Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "circumvent",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-02-09T11:39:35.811Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "ambitious",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-02-09T12:01:11.295Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "39",
+    "object_repr": "Genocide",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-02-09T12:47:03.846Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "45",
+    "object_repr": "Love",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-02-09T12:47:03.858Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "44",
+    "object_repr": "Rubric",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-02-09T12:47:03.864Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "43",
+    "object_repr": "Ambitious",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-02-09T12:47:03.864Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "42",
+    "object_repr": "Engage",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-02-09T12:47:03.876Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "41",
+    "object_repr": "Genocide",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-02-09T12:47:03.882Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "40",
+    "object_repr": "Exile",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-02-09T15:26:04.345Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-02-09T15:26:33.186Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "joker",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Staff status\", \"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-02-14T16:10:28.063Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "50",
+    "object_repr": "Dwell",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-02-15T12:19:40.006Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "testing",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-02-15T12:20:13.705Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "testing",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-02-15T12:20:22.941Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.802Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "30",
+    "object_repr": "joker - Dwell - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.819Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "29",
+    "object_repr": "joker - Dwell - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.825Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "28",
+    "object_repr": "joker - Dwell - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.828Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "27",
+    "object_repr": "joker - Dwell - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.836Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "26",
+    "object_repr": "joker - Dwell - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.844Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "25",
+    "object_repr": "joker - Dwell - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.844Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "24",
+    "object_repr": "joker - Dwell - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.852Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "23",
+    "object_repr": "joker - Dwell - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.855Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "22",
+    "object_repr": "joker - Dwell - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.855Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "21",
+    "object_repr": "joker - Dwell - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.867Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "20",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.872Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "19",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.872Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "18",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.872Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "17",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.885Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "16",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.885Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "15",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.891Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "14",
+    "object_repr": "joker - Bombarded - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.899Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "13",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.904Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "12",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.904Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "11",
+    "object_repr": "joker - Bombarded - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.904Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "10",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.917Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.919Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.924Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "joker - Lucid - Score: 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.931Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.935Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.939Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.941Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.947Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2025-02-15T13:15:05.952Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "joker - Lucid - Score: 0",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2025-02-17T08:01:27.449Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "MCQ Score: 4 out of 10 for word 'Bombarded' of user 'joker' attempt: 1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"TotalScore\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2025-02-25T17:32:11.845Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2025-03-31T07:45:42.189Z",
+    "user": 3,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "ynr24piyush",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add word",
+    "content_type": 7,
+    "codename": "add_word"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change word",
+    "content_type": 7,
+    "codename": "change_word"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete word",
+    "content_type": 7,
+    "codename": "delete_word"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view word",
+    "content_type": 7,
+    "codename": "view_word"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add mcq",
+    "content_type": 8,
+    "codename": "add_mcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change mcq",
+    "content_type": 8,
+    "codename": "change_mcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete mcq",
+    "content_type": 8,
+    "codename": "delete_mcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view mcq",
+    "content_type": 8,
+    "codename": "view_mcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 9,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 9,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 9,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 9,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add quiz attempt",
+    "content_type": 10,
+    "codename": "add_quizattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change quiz attempt",
+    "content_type": 10,
+    "codename": "change_quizattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete quiz attempt",
+    "content_type": 10,
+    "codename": "delete_quizattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view quiz attempt",
+    "content_type": 10,
+    "codename": "view_quizattempt"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add idiom",
+    "content_type": 11,
+    "codename": "add_idiom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change idiom",
+    "content_type": 11,
+    "codename": "change_idiom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete idiom",
+    "content_type": 11,
+    "codename": "delete_idiom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view idiom",
+    "content_type": 11,
+    "codename": "view_idiom"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add idiom mcq",
+    "content_type": 12,
+    "codename": "add_idiommcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change idiom mcq",
+    "content_type": 12,
+    "codename": "change_idiommcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete idiom mcq",
+    "content_type": 12,
+    "codename": "delete_idiommcq"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view idiom mcq",
+    "content_type": 12,
+    "codename": "view_idiommcq"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Admin",
+    "permissions": [
+      1,
+      2,
+      3,
+      4,
+      9,
+      10,
+      11,
+      12,
+      5,
+      6,
+      7,
+      8,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      41,
+      42,
+      43,
+      44,
+      25,
+      26,
+      27,
+      28,
+      45,
+      46,
+      47,
+      48,
+      29,
+      30,
+      31,
+      32,
+      37,
+      38,
+      39,
+      40,
+      21,
+      22,
+      23,
+      24,
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "dictApp",
+    "model": "word"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "quizApp",
+    "model": "mcq"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "userApp",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "quizApp",
+    "model": "quizattempt"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "dictApp",
+    "model": "idiom"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "quizApp",
+    "model": "idiommcq"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cpjno54yiyfwvhm036f73qnyt5hq7tua",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAYoGVcuvcMhAFGqoYmpV0Z765NutDtf-_9lwhxW2vYelnClMVZaHH63SimR2k7yPfYbrNMc1uXieSuyIN2eZ1zeV4O9--gxl6_tUPvlTYwRK2cZ8eouFjnQRVvFCCP3mogdIZKspg0jwCYSCOZwTKI9welpDaT:1tjvps:ZvJAUFQs6DT5prmV_BdVNvie0aESF9qut1ot2k5fFtk",
+    "expire_date": "2025-03-03T07:46:36.651Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "efprprj17go42ak4juf3yt0xxdsplo5v",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDKAENcuvcMBGZAqoYmpV013t026UK3773_NxHiutSw9jyHkcVVDOLyy1KkV26H4Gdsj0nS1JZ5TPJI5Gm7vE-c37ez_Tuosdd9jYk1IyaiiEWz8c7o7AishYE9auXQKwDld0hGZXBsTFEJLURNBcXnC9zYN3I:1tmylx:1VFIQ7NvhKCx5qaRmu3FH0Epmf6pOd0GR6Ja8F0UTP8",
+    "expire_date": "2025-03-11T17:31:09.142Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kyaoafwu9yvptrx2xo7wmdm0fnibe5y5",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAYoGVcuvcMhAFGqoYmpV0Z765NutDtf-_9lwhxW2vYelnClMVZaHH63SimR2k7yPfYbrNMc1uXieSuyIN2eZ1zeV4O9--gxl6_tUPvlTYwRK2cZ8eouFjnQRVvFCCP3mogdIZKspg0jwCYSCOZwTKI9welpDaT:1tjseO:3MohlZkOJE9c3DhGJ7WyGVWFKXJPxmBYozq_YK-HVy4",
+    "expire_date": "2025-03-03T04:22:32.373Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p9uyoj7c05rr0hldh3xvg28uszqz10ue",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAYoGVcuvcMhAFGqoYmpV0Z765NutDtf-_9lwhxW2vYelnClMVZaHH63SimR2k7yPfYbrNMc1uXieSuyIN2eZ1zeV4O9--gxl6_tUPvlTYwRK2cZ8eouFjnQRVvFCCP3mogdIZKspg0jwCYSCOZwTKI9welpDaT:1tjxdV:wotSvw3Nv1yCxDOI8SyvJgZvUOsaOXQ6JCD4q2YiEQg",
+    "expire_date": "2025-03-03T09:41:57.412Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "slmihjvswx8xnh6hvng3unydv44nhvmo",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAYoGVcuvcMhAFGqoYmpV0Z765NutDtf-_9lwhxW2vYelnClMVZaHH63SimR2k7yPfYbrNMc1uXieSuyIN2eZ1zeV4O9--gxl6_tUPvlTYwRK2cZ8eouFjnQRVvFCCP3mogdIZKspg0jwCYSCOZwTKI9welpDaT:1tjHA9:SPggP4LmZ8nKiSXIRrh3cnQdmvWp9KyoS-3Ts65NVoY",
+    "expire_date": "2025-03-01T12:20:49.378Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u4mze6q3fwm115o3jztw5lt2vfr56ro1",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAYoGVcuvcMhAFGqoYmpV0Z765NutDtf-_9lwhxW2vYelnClMVZaHH63SimR2k7yPfYbrNMc1uXieSuyIN2eZ1zeV4O9--gxl6_tUPvlTYwRK2cZ8eouFjnQRVvFCCP3mogdIZKspg0jwCYSCOZwTKI9welpDaT:1tz9rF:izXFVmq3p8CGR5qzV26AdXHG3_mTkK4fvRDEENdH9BA",
+    "expire_date": "2025-04-14T07:46:57.796Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 46,
+  "fields": {
+    "word": "Genocide",
+    "meaning": "The deliberate killing of a large group of people, especially those of a particular nation or ethnic group.",
+    "synonyms": "Massacre, Extermination, Mass murder, Ethnic cleansing, Holocaust",
+    "antonyms": "Peace, Reconciliation, Protection, Preservation, Tolerance",
+    "example": "The systematic genocide of the tutsi people in rwanda is a horrific example of the consequences of hatred and intolerance.",
+    "created_by": 1,
+    "created_at": "2025-02-09T12:48:58.347Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 47,
+  "fields": {
+    "word": "Ambitious",
+    "meaning": "Having or showing a strong desire and determination to succeed.",
+    "synonyms": "Driven, Aspiring, Determined, Motivated, Go-getting",
+    "antonyms": "Lazy, Unmotivated, Apathetic, Lackadaisical, Indifferent",
+    "example": "She was an ambitious young lawyer, working long hours to achieve her goals.",
+    "created_by": 1,
+    "created_at": "2025-02-09T12:50:17.629Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 48,
+  "fields": {
+    "word": "Lucid",
+    "meaning": "Clear and easy to understand",
+    "synonyms": "Clear, Intelligible, Coherent, Rational, Comprehensible",
+    "antonyms": "Unclear, Confused, Muddy, Obscure, Incoherent",
+    "example": "Her explanation of the complex theory was lucid and concise.",
+    "created_by": 1,
+    "created_at": "2025-02-09T12:52:45.483Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 49,
+  "fields": {
+    "word": "Bombarded",
+    "meaning": "To attack or overwhelm with a large amount of something.",
+    "synonyms": "Attacked, Assaulted, Besieged, Saturated, Overwhelmed",
+    "antonyms": "Ignored, Neglected, Protected, Sheltered, Spared",
+    "example": "The student felt bombarded with assignments before the deadline.",
+    "created_by": 1,
+    "created_at": "2025-02-09T13:10:24.866Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 51,
+  "fields": {
+    "word": "Dwell",
+    "meaning": "To live or stay in a place; to linger or focus on something.",
+    "synonyms": "Reside, Inhabit, Abide, Linger, Ponder",
+    "antonyms": "Depart, Leave, Vacate, Ignore, Neglect",
+    "example": "The family chose to dwell in a quiet, rural area.",
+    "created_by": 1,
+    "created_at": "2025-02-14T16:23:17.546Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 52,
+  "fields": {
+    "word": "Elucidate",
+    "meaning": "To make something clear; to explain",
+    "synonyms": "Clarify, Explain, Illustrate, Explicate, Interpret",
+    "antonyms": "Obscure, Confuse, Muddle, Mystify, Befuddle",
+    "example": "The professor attempted to elucidate the complex theory with a simple analogy.",
+    "created_by": 1,
+    "created_at": "2025-03-31T07:52:50.915Z"
+  }
+},
+{
+  "model": "dictApp.word",
+  "pk": 53,
+  "fields": {
+    "word": "Evasively",
+    "meaning": "In a way that avoids giving a direct answer or committing oneself.",
+    "synonyms": "Evassively, Ambiguously, Indirectly, Shiftily, Dodgingly",
+    "antonyms": "Directly, Frankly, Honestly, Openly, Candidly",
+    "example": "He answered the question evasively, refusing to confirm or deny the rumors.",
+    "created_by": 1,
+    "created_at": "2025-03-31T07:54:37.469Z"
+  }
+},
+{
+  "model": "dictApp.idiom",
+  "pk": 1,
+  "fields": {
+    "phrase": "Beating around the bush",
+    "meaning": "Avoiding the main topic; speaking indirectly or evasively.",
+    "example": "Instead of directly telling me the bad news, he kept beating around the bush, making vague statements that only hinted at the problem.",
+    "insights": "The idiom's origin is believed to stem from hunting practices.  when hunting birds, one would avoid frightening them away by moving directly towards them, instead making a wide, indirect approach.  this strategy was called 'beating around the bush' because hunters would often beat the bushes to flush out the birds without scaring them. the indirect approach in conversation mirrors this hunting technique.",
+    "category": "Everyday life",
+    "related_idioms": "Speaking in circles, Dancing around the subject, Avoiding the issue",
+    "origin": "The origin dates back to at least the 16th century, with its usage becoming more widespread in the 19th and 20th centuries.",
+    "difficulty_level": "Beginner",
+    "tags": "Communication, Indirect, Evasive, Conversation, Avoidance, Delay, Directness",
+    "created_by": 1,
+    "created_at": "2025-03-31T07:53:56.980Z"
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 16,
+  "fields": {
+    "word": 48,
+    "question_text": "Which word best describes the meaning of 'lucid'?",
+    "option1": "Clear",
+    "option2": "Obscure",
+    "option3": "Confused",
+    "option4": "Muddy",
+    "correct_option": 1,
+    "created_at": "2025-02-09T12:52:50.735Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 17,
+  "fields": {
+    "word": 48,
+    "question_text": "In the sentence 'her explanation was lucid,' what is the meaning of 'lucid'?",
+    "option1": "Unclear",
+    "option2": "Incoherent",
+    "option3": "Confused",
+    "option4": "Intelligible",
+    "correct_option": 4,
+    "created_at": "2025-02-09T12:52:50.747Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 18,
+  "fields": {
+    "word": 48,
+    "question_text": "A lucid dream is characterized by what?",
+    "option1": "Unclear imagery and narrative",
+    "option2": "A lack of rational thought",
+    "option3": "Coherence and clarity",
+    "option4": "Confusion and disorientation",
+    "correct_option": 3,
+    "created_at": "2025-02-09T12:52:50.758Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 19,
+  "fields": {
+    "word": 48,
+    "question_text": "Which of these is an antonym of 'lucid'?",
+    "option1": "Coherent",
+    "option2": "Muddy",
+    "option3": "Rational",
+    "option4": "Comprehensible",
+    "correct_option": 3,
+    "created_at": "2025-02-09T12:52:50.766Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 20,
+  "fields": {
+    "word": 48,
+    "question_text": "If something is described as lucid, it is:",
+    "option1": "Easy to understand",
+    "option2": "Ambiguous and vague",
+    "option3": "Difficult to comprehend",
+    "option4": "Complex and convoluted",
+    "correct_option": 1,
+    "created_at": "2025-02-09T12:52:50.776Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 21,
+  "fields": {
+    "word": 48,
+    "question_text": "The opposite of a lucid explanation would be:",
+    "option1": "A concise explanation",
+    "option2": "A brief explanation",
+    "option3": "An incoherent explanation",
+    "option4": "A detailed explanation",
+    "correct_option": 1,
+    "created_at": "2025-02-09T12:52:50.786Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 22,
+  "fields": {
+    "word": 48,
+    "question_text": "Which word best represents the clarity implied by 'lucid'?",
+    "option1": "Opacity",
+    "option2": "Transparency",
+    "option3": "Vagueness",
+    "option4": "Ambiguity",
+    "correct_option": 2,
+    "created_at": "2025-02-09T12:52:50.795Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 23,
+  "fields": {
+    "word": 48,
+    "question_text": "A lucid writer is one who is:",
+    "option1": "Difficult to follow",
+    "option2": "Unclear in their expression",
+    "option3": "Easily understood",
+    "option4": "Confused in their writing",
+    "correct_option": 3,
+    "created_at": "2025-02-09T12:52:50.805Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 24,
+  "fields": {
+    "word": 48,
+    "question_text": "In what context would the word 'lucid' be most appropriate?",
+    "option1": "Describing an unintelligible sound",
+    "option2": "Describing an obscure and mysterious event",
+    "option3": "Describing a confusing and jumbled narrative",
+    "option4": "Describing a clear and rational argument",
+    "correct_option": 4,
+    "created_at": "2025-02-09T12:52:50.809Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 25,
+  "fields": {
+    "word": 48,
+    "question_text": "Which phrase best exemplifies the meaning of 'lucid'?",
+    "option1": "An incoherent ramblings",
+    "option2": "Crystal clear reasoning",
+    "option3": "An obscure reference",
+    "option4": "A muddled explanation",
+    "correct_option": 2,
+    "created_at": "2025-02-09T12:52:50.822Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 26,
+  "fields": {
+    "word": 49,
+    "question_text": "In the sentence 'the student felt bombarded with assignments before the deadline.', what is the best synonym for 'bombarded'?",
+    "option1": "Ignored",
+    "option2": "Overwhelmed",
+    "option3": "Neglected",
+    "option4": "Protected",
+    "correct_option": 2,
+    "created_at": "2025-02-09T13:10:30.357Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 27,
+  "fields": {
+    "word": 49,
+    "question_text": "Which word best describes the feeling of being 'bombarded' with work?",
+    "option1": "Spared",
+    "option2": "Assaulted",
+    "option3": "Sheltered",
+    "option4": "Attacked",
+    "correct_option": 1,
+    "created_at": "2025-02-09T13:10:30.373Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 28,
+  "fields": {
+    "word": 49,
+    "question_text": "If someone is 'bombarded' with questions, they are:",
+    "option1": "Neglected",
+    "option2": "Spared",
+    "option3": "Ignored",
+    "option4": "Besieged",
+    "correct_option": 4,
+    "created_at": "2025-02-09T13:10:30.384Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 29,
+  "fields": {
+    "word": 49,
+    "question_text": "The word 'bombarded' suggests an overwhelming amount of something. which word best reflects this?",
+    "option1": "Sheltered",
+    "option2": "Saturated",
+    "option3": "Ignored",
+    "option4": "Protected",
+    "correct_option": 2,
+    "created_at": "2025-02-09T13:10:30.392Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 30,
+  "fields": {
+    "word": 49,
+    "question_text": "What is the opposite of being 'bombarded' with information?",
+    "option1": "Attacked",
+    "option2": "Besieged",
+    "option3": "Overwhelmed",
+    "option4": "Spared",
+    "correct_option": 4,
+    "created_at": "2025-02-09T13:10:30.408Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 31,
+  "fields": {
+    "word": 49,
+    "question_text": "Being 'bombarded' with requests implies:",
+    "option1": "Assaulted",
+    "option2": "Neglected",
+    "option3": "Spared",
+    "option4": "Protected",
+    "correct_option": 1,
+    "created_at": "2025-02-09T13:10:30.419Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 32,
+  "fields": {
+    "word": 49,
+    "question_text": "Which word best captures the intense feeling of being 'bombarded'?",
+    "option1": "Sheltered",
+    "option2": "Ignored",
+    "option3": "Attacked",
+    "option4": "Overwhelmed",
+    "correct_option": 3,
+    "created_at": "2025-02-09T13:10:30.427Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 33,
+  "fields": {
+    "word": 49,
+    "question_text": "A city under siege might be described as being:",
+    "option1": "Bombarded",
+    "option2": "Protected",
+    "option3": "Neglected",
+    "option4": "Spared",
+    "correct_option": 1,
+    "created_at": "2025-02-09T13:10:30.440Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 34,
+  "fields": {
+    "word": 49,
+    "question_text": "If you are 'bombarded' with emails, you are likely:",
+    "option1": "Saturated",
+    "option2": "Sheltered",
+    "option3": "Neglected",
+    "option4": "Ignored",
+    "correct_option": 1,
+    "created_at": "2025-02-09T13:10:30.452Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 35,
+  "fields": {
+    "word": 49,
+    "question_text": "The feeling of being 'bombarded' is similar to the feeling of being:",
+    "option1": "Spared",
+    "option2": "Ignored",
+    "option3": "Protected",
+    "option4": "Besieged",
+    "correct_option": 4,
+    "created_at": "2025-02-09T13:10:30.460Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 46,
+  "fields": {
+    "word": 51,
+    "question_text": "In the sentence 'the nomads dwell in temporary shelters,' what does 'dwell' mean?",
+    "option1": "Ignore",
+    "option2": "Reside",
+    "option3": "Neglect",
+    "option4": "Depart",
+    "correct_option": 2,
+    "created_at": "2025-02-14T16:23:32.319Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 47,
+  "fields": {
+    "word": 51,
+    "question_text": "Which word is a synonym of 'dwell'?",
+    "option1": "Neglect",
+    "option2": "Leave",
+    "option3": "Inhabit",
+    "option4": "Vacate",
+    "correct_option": 2,
+    "created_at": "2025-02-14T16:23:32.333Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 48,
+  "fields": {
+    "word": 51,
+    "question_text": "If someone chooses to dwell in a city, they choose to...",
+    "option1": "Abide",
+    "option2": "Depart",
+    "option3": "Vacate",
+    "option4": "Leave",
+    "correct_option": 1,
+    "created_at": "2025-02-14T16:23:32.342Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 49,
+  "fields": {
+    "word": 51,
+    "question_text": "'dwell' is closest in meaning to which word?",
+    "option1": "Ignore",
+    "option2": "Linger",
+    "option3": "Depart",
+    "option4": "Leave",
+    "correct_option": 2,
+    "created_at": "2025-02-14T16:23:32.351Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 50,
+  "fields": {
+    "word": 51,
+    "question_text": "The opposite of 'dwell' is closest to:",
+    "option1": "Abide",
+    "option2": "Vacate",
+    "option3": "Reside",
+    "option4": "Inhabit",
+    "correct_option": 3,
+    "created_at": "2025-02-14T16:23:32.358Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 51,
+  "fields": {
+    "word": 51,
+    "question_text": "Which word could replace 'dwell' in the sentence 'they dwell on the past'?",
+    "option1": "Ponder",
+    "option2": "Leave",
+    "option3": "Neglect",
+    "option4": "Depart",
+    "correct_option": 4,
+    "created_at": "2025-02-14T16:23:32.368Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 52,
+  "fields": {
+    "word": 51,
+    "question_text": "If someone doesn't dwell on a topic, they don't...",
+    "option1": "Inhabit",
+    "option2": "Ponder",
+    "option3": "Reside",
+    "option4": "Abide",
+    "correct_option": 2,
+    "created_at": "2025-02-14T16:23:32.376Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 53,
+  "fields": {
+    "word": 51,
+    "question_text": "The word 'dwell' in 'they dwell by the sea' means:",
+    "option1": "Ignore",
+    "option2": "Leave",
+    "option3": "Reside",
+    "option4": "Neglect",
+    "correct_option": 3,
+    "created_at": "2025-02-14T16:23:32.388Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 54,
+  "fields": {
+    "word": 51,
+    "question_text": "Which is not a synonym of 'dwell' as in 'to live somewhere'?",
+    "option1": "Depart",
+    "option2": "Inhabit",
+    "option3": "Abide",
+    "option4": "Reside",
+    "correct_option": 1,
+    "created_at": "2025-02-14T16:23:32.398Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 55,
+  "fields": {
+    "word": 51,
+    "question_text": "Which word is closest in meaning to 'dwell' as in 'to think deeply about something'?",
+    "option1": "Depart",
+    "option2": "Vacate",
+    "option3": "Ponder",
+    "option4": "Ignore",
+    "correct_option": 3,
+    "created_at": "2025-02-14T16:23:32.406Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 56,
+  "fields": {
+    "word": 52,
+    "question_text": "What is the meaning of 'elucidate'?",
+    "option1": "To introduce new and unrelated information.",
+    "option2": "To make more complex and difficult.",
+    "option3": "To offer a personal opinion on a matter.",
+    "option4": "To make clear and easy to understand.",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:53:02.586Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 57,
+  "fields": {
+    "word": 52,
+    "question_text": "Which word is a synonym of 'elucidate'?",
+    "option1": "Obscure",
+    "option2": "Confuse",
+    "option3": "Clarify",
+    "option4": "Mystify",
+    "correct_option": 3,
+    "created_at": "2025-03-31T07:53:02.619Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 58,
+  "fields": {
+    "word": 52,
+    "question_text": "Which word is an antonym of 'elucidate'?",
+    "option1": "Illustrate",
+    "option2": "Explain",
+    "option3": "Interpret",
+    "option4": "Confuse",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:53:02.649Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 59,
+  "fields": {
+    "word": 52,
+    "question_text": "In the sentence 'the professor attempted to elucidate the complex theory...', what did the professor try to do?",
+    "option1": "Make the theory more complicated.",
+    "option2": "Introduce a new theory.",
+    "option3": "Disprove the theory.",
+    "option4": "Explain the theory clearly.",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:53:02.671Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 60,
+  "fields": {
+    "word": 52,
+    "question_text": "Which of the following is closest in meaning to 'elucidate'?",
+    "option1": "Obscure",
+    "option2": "Explicate",
+    "option3": "Befuddle",
+    "option4": "Muddle",
+    "correct_option": 2,
+    "created_at": "2025-03-31T07:53:02.697Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 61,
+  "fields": {
+    "word": 52,
+    "question_text": "If someone elucidates a point, they:",
+    "option1": "Ignore the point entirely.",
+    "option2": "Change the topic of conversation.",
+    "option3": "Make it easier to understand.",
+    "option4": "Make it more ambiguous.",
+    "correct_option": 3,
+    "created_at": "2025-03-31T07:53:02.717Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 62,
+  "fields": {
+    "word": 52,
+    "question_text": "Choose the word that best completes the sentence: 'the detective sought to ______ the mystery surrounding the stolen artifact.'",
+    "option1": "Befuddle",
+    "option2": "Obscure",
+    "option3": "Muddle",
+    "option4": "Elucidate",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:53:02.737Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 63,
+  "fields": {
+    "word": 52,
+    "question_text": "Which of these actions is most similar to elucidating something?",
+    "option1": "Ignoring the problem altogether.",
+    "option2": "Shedding light on a dark subject.",
+    "option3": "Creating a diversion to distract from the main issue.",
+    "option4": "Adding fog to an already unclear situation.",
+    "correct_option": 2,
+    "created_at": "2025-03-31T07:53:02.760Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 64,
+  "fields": {
+    "word": 52,
+    "question_text": "The speaker tried to elucidate the issue, but the audience remained _____.",
+    "option1": "Persuaded",
+    "option2": "Enlightened",
+    "option3": "Satisfied",
+    "option4": "Befuddled",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:53:02.785Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 65,
+  "fields": {
+    "word": 52,
+    "question_text": "Would you elucidate your point further?  i'm still a little ______.",
+    "option1": "Clear",
+    "option2": "Certain",
+    "option3": "Informed",
+    "option4": "Confused",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:53:02.809Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 66,
+  "fields": {
+    "word": 53,
+    "question_text": "Which word is a synonym of 'evasively'?",
+    "option1": "Directly",
+    "option2": "Indirectly",
+    "option3": "Openly",
+    "option4": "Honestly",
+    "correct_option": 2,
+    "created_at": "2025-03-31T07:54:49.759Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 67,
+  "fields": {
+    "word": 53,
+    "question_text": "He answered the question evasively.  this means he answered...",
+    "option1": "With complete honesty and transparency.",
+    "option2": "By providing specific details and examples.",
+    "option3": "By confirming all the rumors.",
+    "option4": "In a way that avoided a direct answer.",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:54:49.789Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 68,
+  "fields": {
+    "word": 53,
+    "question_text": "Which word is an antonym of 'evasively'?",
+    "option1": "Frankly",
+    "option2": "Shiftily",
+    "option3": "Ambiguously",
+    "option4": "Dodgingly",
+    "correct_option": 1,
+    "created_at": "2025-03-31T07:54:49.820Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 69,
+  "fields": {
+    "word": 53,
+    "question_text": "If someone speaks evasively, they are likely trying to...",
+    "option1": "Avoid revealing something.",
+    "option2": "Clarify their position.",
+    "option3": "Emphasize their point.",
+    "option4": "Persuade the listener.",
+    "correct_option": 1,
+    "created_at": "2025-03-31T07:54:49.853Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 70,
+  "fields": {
+    "word": 53,
+    "question_text": "Which word best describes an 'evasive' response?",
+    "option1": "Forthright",
+    "option2": "Clear",
+    "option3": "Concise",
+    "option4": "Ambiguous",
+    "correct_option": 4,
+    "created_at": "2025-03-31T07:54:49.882Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 71,
+  "fields": {
+    "word": 53,
+    "question_text": "The witness testified evasively.  what does this imply about their testimony?",
+    "option1": "It was truthful and candid.",
+    "option2": "It was detailed and precise.",
+    "option3": "It was unclear and indirect.",
+    "option4": "It was persuasive and convincing.",
+    "correct_option": 3,
+    "created_at": "2025-03-31T07:54:49.905Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 72,
+  "fields": {
+    "word": 53,
+    "question_text": "Which of these behaviors is not characteristic of someone acting evasively?",
+    "option1": "Avoiding eye contact.",
+    "option2": "Changing the subject.",
+    "option3": "Providing direct answers.",
+    "option4": "Giving vague responses.",
+    "correct_option": 3,
+    "created_at": "2025-03-31T07:54:49.934Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 73,
+  "fields": {
+    "word": 53,
+    "question_text": "What is the closest synonym to 'shiftily' in the context of 'evasively'?",
+    "option1": "Directly",
+    "option2": "Candidly",
+    "option3": "Dodgingly",
+    "option4": "Openly",
+    "correct_option": 3,
+    "created_at": "2025-03-31T07:54:49.957Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 74,
+  "fields": {
+    "word": 53,
+    "question_text": "If someone answers a question 'candidly', they are not answering...",
+    "option1": "Truthfully",
+    "option2": "Openly",
+    "option3": "Evasively",
+    "option4": "Honestly",
+    "correct_option": 3,
+    "created_at": "2025-03-31T07:54:49.981Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.mcq",
+  "pk": 75,
+  "fields": {
+    "word": 53,
+    "question_text": "The politician responded evasively to the journalist's questions. this suggests the politician...",
+    "option1": "Had a clear and concise response prepared.",
+    "option2": "Did not want to give a straight answer.",
+    "option3": "Was being completely transparent.",
+    "option4": "Was eager to share all the details.",
+    "correct_option": 2,
+    "created_at": "2025-03-31T07:54:50.001Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.quizattempt",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "word": 49,
+    "score": 4,
+    "maxScore": 10,
+    "date_attempted": "2025-02-17T07:47:07Z"
+  }
+},
+{
+  "model": "quizApp.quizattempt",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "word": 49,
+    "score": 1,
+    "maxScore": 10,
+    "date_attempted": "2025-02-17T08:11:04.804Z"
+  }
+},
+{
+  "model": "quizApp.quizattempt",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "word": 51,
+    "score": 1,
+    "maxScore": 10,
+    "date_attempted": "2025-02-17T09:49:20.118Z"
+  }
+},
+{
+  "model": "quizApp.quizattempt",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "word": null,
+    "score": 11,
+    "maxScore": 30,
+    "date_attempted": "2025-02-17T10:00:52.252Z"
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 1,
+  "fields": {
+    "idiom": 1,
+    "question_text": "What does the idiom 'Beating around the bush' mean?",
+    "option1": "Being very direct and honest.",
+    "option2": "Avoiding the main topic and speaking indirectly.",
+    "option3": "Speaking loudly and clearly.",
+    "option4": "Getting straight to the point.",
+    "correct_option": "2",
+    "created_at": "2025-03-31T07:54:09.384Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 2,
+  "fields": {
+    "idiom": 1,
+    "question_text": "Which of these is an example of 'beating around the bush'?",
+    "option1": "Giving a concise presentation on a specific topic.",
+    "option2": "Clearly explaining the steps of a process.",
+    "option3": "Hinting at a problem without stating it clearly.",
+    "option4": "Telling someone directly that they didn't get the job.",
+    "correct_option": "4",
+    "created_at": "2025-03-31T07:54:09.414Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 3,
+  "fields": {
+    "idiom": 1,
+    "question_text": "The idiom 'Beating around the bush' is believed to have originated from:",
+    "option1": "Ancient philosophical debates.",
+    "option2": "Hunting practices.",
+    "option3": "Early forms of theatrical performance.",
+    "option4": "Gardening practices.",
+    "correct_option": "4",
+    "created_at": "2025-03-31T07:54:09.436Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 4,
+  "fields": {
+    "idiom": 1,
+    "question_text": "Which of these idioms has a similar meaning to 'Beating around the bush'?",
+    "option1": "Calling a spade a spade.",
+    "option2": "Hitting the nail on the head.",
+    "option3": "Speaking in circles.",
+    "option4": "Cutting to the chase.",
+    "correct_option": "4",
+    "created_at": "2025-03-31T07:54:09.457Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 5,
+  "fields": {
+    "idiom": 1,
+    "question_text": "If someone is 'beating around the bush', they are likely trying to:",
+    "option1": "Ensure everyone understands their point perfectly.",
+    "option2": "Communicate effectively and efficiently.",
+    "option3": "Avoid a difficult or uncomfortable conversation.",
+    "option4": "Be as clear and concise as possible.",
+    "correct_option": "3",
+    "created_at": "2025-03-31T07:54:09.476Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 6,
+  "fields": {
+    "idiom": 1,
+    "question_text": "The idiom 'Beating around the bush' implies a lack of:",
+    "option1": "Confidence.",
+    "option2": "Vocabulary.",
+    "option3": "Intelligence.",
+    "option4": "Directness.",
+    "correct_option": "4",
+    "created_at": "2025-03-31T07:54:09.500Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 7,
+  "fields": {
+    "idiom": 1,
+    "question_text": "When did the idiom 'Beating around the bush' become more widespread?",
+    "option1": "19th and 20th centuries.",
+    "option2": "21st century.",
+    "option3": "1st and 2nd centuries.",
+    "option4": "The Middle Ages.",
+    "correct_option": "3",
+    "created_at": "2025-03-31T07:54:09.521Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 8,
+  "fields": {
+    "idiom": 1,
+    "question_text": "In the context of its origin, 'beating around the bush' was meant to:",
+    "option1": "Attract birds with noise.",
+    "option2": "Build a nest for the birds.",
+    "option3": "Flush out birds without frightening them.",
+    "option4": "Scare away the birds quickly.",
+    "correct_option": "4",
+    "created_at": "2025-03-31T07:54:09.541Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 9,
+  "fields": {
+    "idiom": 1,
+    "question_text": "Which word best describes someone who frequently 'beats around the bush'?",
+    "option1": "Blunt.",
+    "option2": "Evasive.",
+    "option3": "Forthright.",
+    "option4": "Candid.",
+    "correct_option": "2",
+    "created_at": "2025-03-31T07:54:09.565Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "quizApp.idiommcq",
+  "pk": 10,
+  "fields": {
+    "idiom": 1,
+    "question_text": "Which phrase is NOT related in meaning to 'Beating around the bush'?",
+    "option1": "Dancing around the subject.",
+    "option2": "Avoiding the issue.",
+    "option3": "Speaking in circles.",
+    "option4": "Getting to the point.",
+    "correct_option": "1",
+    "created_at": "2025-03-31T07:54:09.586Z",
+    "created_by": 1
+  }
+},
+{
+  "model": "userApp.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$k3F4Tg1157ZEWiSE8nOQhb$J7z+WPI8YwKu0yblO0PMgdb6rpQt72DPOf//fWMuens=",
+    "last_login": "2025-03-31T07:46:57.777Z",
+    "is_superuser": false,
+    "username": "joker",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-02-09T09:59:53Z",
+    "email": "chd24piyush@gmail.com",
+    "is_premium": false,
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "userApp.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$I5LGW19n1esvP2EfGStEIn$sYhvcGvw4Dq+ce0+mY0ViLBc2aLpKf/YLG0a3RGoY9c=",
+    "last_login": "2025-02-15T10:46:38.071Z",
+    "is_superuser": false,
+    "username": "rony",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-02-15T10:08:46.363Z",
+    "email": "ynr24rony@gmail.com",
+    "is_premium": false,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
