@@ -11,13 +11,7 @@ if not API_KEY:
 
 genai.configure(api_key=API_KEY)
 
-# AVAILABLE_MODELS = [
-#     "gemini-pro",
-#     "gemini-pro-vision",
-#     "gemini-1.5-pro-latest",
-#     "gemini-1.5-flash-latest"
-# ]
-model = genai.GenerativeModel("gemini-1.5-flash-latest")
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
 
 def clean_json_response(response_text):
     """

@@ -13,13 +13,8 @@ if not API_KEY:
     raise ValueError("API key is missing. Set GOOGLE_API_KEY in environment variables.")
 
 genai.configure(api_key=API_KEY)
-# AVAILABLE_MODELS = [
-#     "gemini-pro",
-#     "gemini-pro-vision",
-#     "gemini-1.5-pro-latest",
-#     "gemini-1.5-flash-latest"
-# ]
-model = genai.GenerativeModel("gemini-1.5-pro-latest")
+
+model = genai.GenerativeModel("gemini-2.5-flash-lite")
 
 def clean_json_response(response_text):
     """Removes markdown-style triple backticks from JSON response."""
